@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12394a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2312394a'/%3E%3Ccircle cx='50' cy='50' r='22' fill='%23f6a446'/%3E%3C/svg%3E">
+<style>*,*::before,*::after{box-sizing:border-box}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Nuestro Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@600&display=swap">
+<style>
+/* Layout: cabecera tipo "pantalla de radar" + barra de pestañas fija; cada pestaña es una columna de lectura de ~65ch */
+/* Tema único claro y suave, alineado con la plantilla del correo (se ve igual en modo claro u oscuro del teléfono) */
+:root{
+  --bg:#f3f6f5; --surface:#ffffff; --fg:#24343a; --muted:#66767c; --line:#e4e9e7;
+  --harbor:#12394a; --signal:#e8a33a; --on-harbor:#f2f7f8;
+  --sonrisita:#c2456b; --fonseca:#1f6f8b; --panoramas:#2e7d4f; --casas:#8a5530; --region:#4a5a8a;
+  --tint:color-mix(in srgb,var(--accent,#12394a) 8%,#ffffff);
+  --soft:color-mix(in srgb,var(--c,#12394a) 12%,#ffffff);
+  --warn-bg:#fdf0ee; --warn:#b03a2e;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",ui-sans-serif,system-ui,sans-serif;
+  color-scheme:light;
+}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--harbor)}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--accent,var(--fonseca))}
+a:focus-visible,button:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+
+/* Cabecera */
+.mast{background:var(--harbor);color:var(--on-harbor);padding-block:22px 18px;position:relative;overflow:hidden}
+.mast svg{position:absolute;right:-40px;top:-40px;width:220px;height:220px;opacity:.22}
+.eyebrow{font:700 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.mast h1{font:800 clamp(34px,8vw,52px)/1 var(--display);margin:8px 0 6px;letter-spacing:-.02em}
+.mast p{margin:0;color:color-mix(in srgb,var(--on-harbor) 80%,transparent);font-size:15px}
+.brand{margin:2px 0 12px;position:relative;z-index:1;max-width:360px}
+.brand svg.logo{width:100%;height:auto;display:block;overflow:visible}
+.logo-names{font:600 23px "Cinzel","Cormorant Garamond",Georgia,serif;letter-spacing:4px;fill:#f4fbfd;paint-order:stroke;stroke:rgba(18,57,74,.55);stroke-width:2.5px}
+.mast .wrap{position:relative;z-index:1}
+@media (prefers-reduced-motion:no-preference){.bob1{animation:bob 3.2s ease-in-out infinite}.bob2{animation:bob 3.2s ease-in-out -1.6s infinite}@keyframes bob{50%{transform:translateY(1.6px)}}.wv{animation:wv 4s ease-in-out infinite}@keyframes wv{50%{transform:translateX(-3px)}}.rays{transform-origin:180px 78px;animation:spin 60s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.ref{animation:shimmer 3.5s ease-in-out infinite}@keyframes shimmer{50%{opacity:.6}}}
+@media (prefers-reduced-motion:no-preference){.sweep{transform-origin:110px 110px;animation:sweep 6s linear infinite}@keyframes sweep{to{transform:rotate(360deg)}}}
+
+/* Pestañas */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.tablist{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
+.tablist::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:transparent;color:var(--fg);font:700 14px/1 var(--body);padding:10px 14px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.tab .dot{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.tab .n{font:700 11px/1 var(--body);background:var(--c);color:var(--surface);border-radius:999px;padding:3px 6px}
+.tab .n{background:var(--soft);color:var(--c)}
+.tab[aria-selected="true"]{background:var(--soft);border-color:color-mix(in srgb,var(--c) 45%,#ffffff);color:var(--c)}
+.tab[aria-selected="true"] .n{background:#ffffff;color:var(--c)}
+
+main{padding-block:22px 40px}
+section[role="tabpanel"]{--accent:var(--c);max-width:65ch}
+section[role="tabpanel"]:not(#portada) .item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px}
+section[role="tabpanel"] .item.alert{background:var(--warn-bg);border-color:color-mix(in srgb,var(--warn) 25%,#ffffff)}
+.sec-head{background:var(--soft);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.sec-head p{margin-bottom:0 !important}
+.sec-head h2{font:800 30px/1.1 var(--display);margin:0;color:var(--c);text-wrap:balance}
+.sec-head p{margin:4px 0 18px;color:var(--muted);font-size:14px}
+
+.item{padding-block:16px;border-top:1px solid var(--line)}
+.item h3{font:700 19px/1.25 var(--display);margin:0 0 4px;text-wrap:balance}
+.meta{font-size:12.5px;color:var(--muted);margin-bottom:6px;letter-spacing:.02em}
+.item p{margin:0 0 8px}
+.why{background:var(--tint);border-radius:6px;padding:8px 12px;font-size:15px}
+.why b{color:var(--c)}
+.links{display:flex;gap:14px;flex-wrap:wrap;font-weight:700;font-size:14.5px;margin-top:8px}
+.alert{background:var(--warn-bg);border-radius:8px;padding:14px 16px;border-top:none;margin-bottom:6px}
+.alert h3{color:var(--warn)}
+.tag{display:inline-block;font:700 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:4px;margin-right:4px;border:1px solid currentColor}
+.tag.free{color:var(--panoramas)} .tag.paid{color:var(--casas)} .tag.who{color:var(--region)} .tag.new{color:var(--signal)}
+ul.short{padding-left:18px;margin:6px 0} ul.short li{margin-bottom:8px}
+
+/* Portada */
+.lede{font:500 21px/1.4 var(--display);margin:0 0 18px;text-wrap:balance}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:22px}
+.card{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.card:hover{border-color:var(--c)}
+.card:focus-visible{outline:2px solid var(--signal)}
+.card .k{font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.card .t{font:700 16px/1.3 var(--display)}
+.card .s{font-size:13.5px;color:var(--muted)}
+.sobremesa{background:var(--harbor);color:var(--on-harbor);border-radius:10px;padding:16px 18px}
+.sobremesa .eyebrow{display:block;margin-bottom:6px}
+
+/* Tablas de casas */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin-top:6px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px;border-bottom:1px solid var(--line);background:var(--tint)}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+.est{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.note{font-size:13.5px;color:var(--muted);margin-top:10px}
+
+/* Muro */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.composer{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:10px;margin-bottom:16px}
+.firma{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+.firma .lbl{color:var(--muted);font-weight:700}
+.firma label{cursor:pointer}
+.firma input{position:absolute;opacity:0}
+.firma label span{display:inline-block;padding:7px 12px;border-radius:999px;border:1px solid var(--line);font-weight:700}
+.firma input:checked+span{background:var(--soft);border-color:color-mix(in srgb,var(--c) 45%,#ffffff);color:var(--c)}
+.firma input:focus-visible+span{outline:2px solid var(--signal)}
+.composer textarea{font:16px/1.5 var(--body);color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;resize:vertical;min-height:80px;width:100%;box-sizing:border-box}
+.composer textarea:focus,.composer select:focus{outline:2px solid color-mix(in srgb,var(--c) 50%,#ffffff);border-color:transparent}
+.composer .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.composer select{font:15px var(--body);padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.send{font:700 15px var(--body);background:var(--c);color:#fff;border:none;border-radius:999px;padding:10px 20px;cursor:pointer}
+.send:disabled{opacity:.5;cursor:default}
+.estado{margin:0;font-size:13.5px;color:var(--muted)}
+.muro-lista{display:grid;gap:10px}
+.msg{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:6px;min-width:0}
+.msg.sonrisita{border-left:4px solid var(--sonrisita)} .msg.fonseca{border-left:4px solid var(--fonseca)}
+.msg .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.msg .who{font-weight:700;color:var(--fg);font-size:14.5px}
+.msg .tema{font:700 11px/1 var(--body);letter-spacing:.05em;text-transform:uppercase;padding:4px 7px;border-radius:4px;background:var(--soft);color:var(--c)}
+.msg .txt{white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.msg .del{margin-left:auto;background:none;border:none;color:var(--muted);font:13px var(--body);cursor:pointer;text-decoration:underline}
+.como{gap:6px}.como p{margin:0;font-size:15px}.como .tip{color:var(--muted);font-size:14px}
+.clave-box{display:grid;gap:6px;font-size:14px;font-weight:700}.clave-box .tip{font-weight:400;color:var(--muted)}.clave-box input{font:16px var(--body);padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg)}
+.vacio{color:var(--muted);text-align:center;padding:18px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;margin:0}
+footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 30px}
+</style>
+</head>
+<body>
+
+
+<header class="mast">
+  <svg viewBox="0 0 220 220" aria-hidden="true">
+    <g fill="none" stroke="#e8a33a" stroke-width="1.5"><circle cx="110" cy="110" r="100"/><circle cx="110" cy="110" r="70"/><circle cx="110" cy="110" r="40"/><line x1="110" y1="10" x2="110" y2="210"/><line x1="10" y1="110" x2="210" y2="110"/></g>
+    <g class="sweep"><path d="M110 110 L110 10 A100 100 0 0 1 196 60 Z" fill="#e8a33a" opacity=".55"/></g>
+    <circle cx="160" cy="70" r="5" fill="#e8a33a"/><circle cx="75" cy="150" r="4" fill="#e8a33a"/>
+  </svg>
+  <div class="wrap">
+    <div class="brand" role="img" aria-label="Luis y Jocelyn">
+      <svg class="logo" viewBox="0 0 360 170" aria-hidden="true">
+        <defs>
+          <radialGradient id="sunG" cx="50%" cy="45%" r="55%">
+            <stop offset="0" stop-color="#fff4cf"/>
+            <stop offset=".35" stop-color="#ffd27a"/>
+            <stop offset=".75" stop-color="#f6a446"/>
+            <stop offset="1" stop-color="#e5793a"/>
+          </radialGradient>
+          <radialGradient id="glowG" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#f6b04f" stop-opacity=".55"/>
+            <stop offset=".55" stop-color="#f6b04f" stop-opacity=".18"/>
+            <stop offset="1" stop-color="#f6b04f" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="refG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f6a446" stop-opacity=".9"/>
+            <stop offset="1" stop-color="#f6a446" stop-opacity="0"/>
+          </linearGradient>
+          <clipPath id="above"><rect x="0" y="0" width="360" height="118"/></clipPath>
+        </defs>
+        <circle cx="180" cy="78" r="84" fill="url(#glowG)"/>
+        <g clip-path="url(#above)">
+          <g class="rays" fill="#ffc861" opacity=".55">
+            <path d="M180 0l4 22h-8z"/><path d="M180 156l4-22h-8z" transform="rotate(0 180 78)"/>
+            <g transform="rotate(22.5 180 78)"><path d="M180 6l3 20h-6z"/><path d="M180 150l3-20h-6z"/></g>
+            <g transform="rotate(45 180 78)"><path d="M180 0l4 22h-8z"/><path d="M180 156l4-22h-8z"/></g>
+            <g transform="rotate(67.5 180 78)"><path d="M180 6l3 20h-6z"/><path d="M180 150l3-20h-6z"/></g>
+            <g transform="rotate(90 180 78)"><path d="M180 0l4 22h-8z"/><path d="M180 156l4-22h-8z"/></g>
+            <g transform="rotate(112.5 180 78)"><path d="M180 6l3 20h-6z"/><path d="M180 150l3-20h-6z"/></g>
+            <g transform="rotate(135 180 78)"><path d="M180 0l4 22h-8z"/><path d="M180 156l4-22h-8z"/></g>
+            <g transform="rotate(157.5 180 78)"><path d="M180 6l3 20h-6z"/><path d="M180 150l3-20h-6z"/></g>
+          </g>
+          <circle cx="180" cy="78" r="48" fill="url(#sunG)"/>
+        </g>
+        <line x1="40" y1="118" x2="320" y2="118" stroke="#9fd3e6" stroke-width="1.2" opacity=".55"/>
+        <g class="ref">
+          <rect x="140" y="123" width="80" height="4" rx="2" fill="url(#refG)"/>
+          <rect x="150" y="132" width="60" height="3.5" rx="1.75" fill="#f6a446" opacity=".55"/>
+          <rect x="160" y="140" width="40" height="3" rx="1.5" fill="#f6a446" opacity=".38"/>
+          <rect x="168" y="147" width="24" height="2.5" rx="1.25" fill="#f6a446" opacity=".25"/>
+        </g>
+        <g fill="none" stroke="#4fa3c4" stroke-width="1.5" stroke-linecap="round" opacity=".7">
+          <path d="M60 128q6-3 12 0t12 0M276 128q6-3 12 0t12 0M92 140q6-3 12 0t12 0M244 140q6-3 12 0t12 0"/>
+        </g>
+        <g class="bob1"><ellipse cx="96" cy="117" rx="18" ry="2.6" fill="#ffffff"/><line x1="92" y1="116" x2="100" y2="94" stroke="#cfe9f2" stroke-width="1.6" stroke-linecap="round"/></g>
+        <g class="bob2"><ellipse cx="264" cy="117" rx="18" ry="2.6" fill="#f48aa0"/><line x1="268" y1="116" x2="260" y2="94" stroke="#cfe9f2" stroke-width="1.6" stroke-linecap="round"/></g>
+        <text x="180" y="87" text-anchor="middle" class="logo-names">LUIS Y JOCELYN</text>
+        <path d="M180 101c-1.8-2.9-6-2.2-6 .7 0 2.6 6 5.9 6 5.9s6-3.3 6-5.9c0-2.9-4.2-3.6-6-.7z" fill="#f48aa0"/>
+      </svg>
+    </div>
+    <div class="eyebrow">Edición N°1 · martes 27 de octubre de 2026</div>
+    <h1>Nuestro Radar</h1>
+    <p>Para El Fonseca y La Sonrisita · Región de Valparaíso</p>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="wrap"><div class="tablist" role="tablist">
+    <button class="tab" role="tab" id="t-portada" aria-controls="portada" style="--c:var(--harbor)">Portada</button>
+    <button class="tab" role="tab" id="t-sonrisita" aria-controls="sonrisita" style="--c:var(--sonrisita)"><span class="dot"></span>La Sonrisita <span class="n">4</span></button>
+    <button class="tab" role="tab" id="t-fonseca" aria-controls="fonseca" style="--c:var(--fonseca)"><span class="dot"></span>El Fonseca <span class="n">5</span></button>
+    <button class="tab" role="tab" id="t-panoramas" aria-controls="panoramas" style="--c:var(--panoramas)"><span class="dot"></span>Panoramas <span class="n">5</span></button>
+    <button class="tab" role="tab" id="t-casas" aria-controls="casas" style="--c:var(--casas)"><span class="dot"></span>Casas <span class="n">8</span></button>
+    <button class="tab" role="tab" id="t-region" aria-controls="region" style="--c:var(--region)"><span class="dot"></span>Región <span class="n">1</span></button>
+    <button class="tab" role="tab" id="t-muro" aria-controls="muro" style="--c:#b8566e"><span class="dot"></span>💬 Muro</button>
+  </div></div>
+</nav>
+
+<main class="wrap">
+
+<!-- PORTADA -->
+<section id="portada" role="tabpanel" aria-labelledby="t-portada" style="--c:var(--harbor);max-width:none">
+  <p class="lede">¡Buenos días, par! Semana de Halloween, la Bienal de Artes recién abierta en el puerto, un “Ozempic genérico” aprobado en Chile y un susto grande para el 70% de las webs del mundo.</p>
+  <div class="news-grid">
+    <button class="card" data-go="sonrisita" style="--c:var(--sonrisita)"><span class="k">La Sonrisita</span><span class="t">ISP aprueba Picmagluti, primera semaglutida sintética</span><span class="s">Y un SAPU nuevo en Limache con TENS en el equipo</span></button>
+    <button class="card" data-go="fonseca" style="--c:var(--fonseca)"><span class="k">El Fonseca</span><span class="t">PHP2Shell: hay que parchar PHP ya</span><span class="s">Más LiteLLM comprometido y OpenAI aislando su entrenamiento</span></button>
+    <button class="card" data-go="panoramas" style="--c:var(--panoramas)"><span class="k">Panoramas</span><span class="t">Hoy 18:30: Bienal de Artes, gratis</span><span class="s">Halloween, Puerto de Ideas, Copano y Marty Friedman</span></button>
+    <button class="card" data-go="casas" style="--c:var(--casas)"><span class="k">Casas</span><span class="t">4D/3B en Bosques de Curauma por UF 3.750</span><span class="s">8 opciones bajo el tope de UF 4.000</span></button>
+    <button class="card" data-go="region" style="--c:var(--region)"><span class="k">Región</span><span class="t">$1.000 millones en arreglo de calles, Placilla incluida</span><span class="s">Justo donde están buscando casa</span></button>
+    <button class="card" data-go="muro" style="--c:#b8566e"><span class="k">💬 Muro</span><span class="t">Déjense un mensaje</span><span class="s">Escriban aquí mismo, eligiendo el tema</span></button>
+  </div>
+  <div class="sobremesa">
+    <span class="eyebrow">Para la sobremesa</span>
+    Un equipo de seguridad usó IA para encontrar en una semana fallas que llevaban más de una década escondidas en PHP. La misma herramienta que defiende también acelera a los atacantes. ¿Confiarían más o menos en internet sabiendo esto?
+  </div>
+</section>
+
+<!-- SONRISITA -->
+<section id="sonrisita" role="tabpanel" aria-labelledby="t-sonrisita" style="--c:var(--sonrisita)" hidden>
+  <div class="sec-head"><h2>La Sonrisita</h2><p>Salud, enfermería y lo que se mueve en el mundo TENS</p></div>
+  <article class="item">
+    <h3>Chile aprueba su primer “Ozempic genérico”: Picmagluti</h3>
+    <div class="meta">20 de octubre de 2026 · ISP</div>
+    <p>El ISP otorgó dos registros a Picmagluti (Dr. Reddy’s), en 0,25/0,5 mg y 1 mg. A diferencia de Ozempic, que es biológico, esta semaglutida se obtiene por síntesis química. Está aprobada para <b>diabetes tipo 2 en adultos</b>, no para obesidad (eso es Wegovy). Aún sin precio confirmado ni fecha en farmacias; hay otros cinco productos en evaluación.</p>
+    <div class="why"><b>Por qué importa:</b> van a llegar preguntas de pacientes; sirve tener clara la diferencia entre indicación aprobada y uso para bajar de peso.</div>
+    <div class="links"><a href="https://www.t13.cl/noticia/nacional/isp-aprueba-primera-semaglutida-sintesis-quimica-chile-alternativa-ozempic-20-10-2026">Leer en T13 →</a><a href="https://www.diarioestrategia.cl/texto-diario/mostrar/6062737/isp-aprueba-picmagluti-primera-semaglutida-sintesis-quimica-autorizada-chile">Explicación de un especialista →</a></div>
+  </article>
+  <article class="item">
+    <h3>Nuevo SAPU en Limache Viejo, con TENS en el equipo</h3>
+    <div class="meta">26 de octubre de 2026 · Radio Stella Maris</div>
+    <p>Ya atiende urgencias leves y moderadas en el CESFAM: lunes a viernes de 17:00 a 00:00, y fines de semana y festivos de 8:00 a medianoche. Categoriza por gravedad, no por orden de llegada.</p>
+    <div class="why"><b>Por qué importa:</b> más dispositivos de urgencia en la región significa más cupos para TENS. Vale seguir las convocatorias de la red de salud de Limache.</div>
+    <div class="links"><a href="https://radiostellamaris.cl/limache-viejo-nuevo-sapu-ya-esta-atendiendo-pacientes">Leer más →</a></div>
+  </article>
+  <article class="item">
+    <h3>Un “laboratorio en la muñeca” por 10 dólares</h3>
+    <div class="meta">22 de octubre de 2026 · Universidad de Cambridge vía ScienceDaily</div>
+    <p>Un sensor óptico de unos US$10 con precisión de laboratorio, tan pequeño que cabe en un dispositivo portátil. Todavía es investigación, pero apunta a análisis fuera del laboratorio.</p>
+    <div class="links"><a href="https://www.sciencedaily.com/releases/2026/10/261022081312.htm">Leer más →</a></div>
+  </article>
+  <article class="item">
+    <h3>Curiosidad: la IA lee Reddit y encuentra efectos de fármacos “piratas”</h3>
+    <div class="meta">21 de octubre de 2026 · ScienceDaily</div>
+    <p>Analizaron casi 150.000 publicaciones de personas que dicen usar versiones no aprobadas de retatrutide y encontraron síntomas inesperados, como más apetito y alteraciones del sueño. No es un ensayo clínico, pero recuerda por qué importa el registro sanitario.</p>
+    <div class="links"><a href="https://www.sciencedaily.com/releases/2026/10/261020085018.htm">Leer más →</a></div>
+  </article>
+  <article class="item">
+    <h3>📋 Concursos y ofertas TENS</h3>
+    <p class="note" style="margin:0">Desde la edición de mañana este bloque trae concursos públicos y ofertas privadas de la región, con fecha de cierre y enlace para postular.</p>
+  </article>
+</section>
+
+<!-- FONSECA -->
+<section id="fonseca" role="tabpanel" aria-labelledby="t-fonseca" style="--c:var(--fonseca)" hidden>
+  <div class="sec-head"><h2>El Fonseca</h2><p>Software, IA y seguridad</p></div>
+  <article class="item alert">
+    <h3>🚨 PHP2Shell: ejecución remota sin autenticación en el núcleo de PHP</h3>
+    <div class="meta">21 de octubre de 2026 · Wiz Research / PHP</div>
+    <p>Fallas de memoria en el motor de PHP (CVE-2026-109618 y CVE-2026-109619, hasta CVSS 9.2) permiten ejecutar código o leer memoria del proceso: contraseñas, tokens, API keys. Afecta casi todas las versiones desde la 5.4. Lo demostraron en WordPress, Drupal y Joomla, pero el bug está en PHP mismo. El parche salió el 21 de octubre.</p>
+    <div class="why"><b>Qué hacer:</b> actualizar PHP en todo servidor a tu cargo. Señales: requests multipart seguidos de errores de memoria o HTTP 500 repetidos, y cookies PHPSESSID raras.</div>
+    <div class="links"><a href="https://www.wiz.io/blog/php2shell-php-rce">Análisis de Wiz →</a><a href="https://www.php.net/archive/2026.php#2026-10-21-5">Parche oficial →</a></div>
+  </article>
+  <article class="item">
+    <h3>LiteLLM 1.107.0 venía con un ladrón de credenciales</h3>
+    <div class="meta">21 de octubre de 2026 · Wiz</div>
+    <p>Una versión maliciosa se subió a PyPI y Docker; roba secretos del navegador, la nube y servicios de IA. Si la usas, revisa la versión instalada y rota credenciales.</p>
+    <div class="links"><a href="https://www.wiz.io/blog/litellm-compromised-steals-credentials">Detalles →</a></div>
+  </article>
+  <article class="item">
+    <h3>OpenAI desconecta del internet en vivo el entrenamiento de sus modelos</h3>
+    <div class="meta">23 de octubre de 2026 · OpenAI</div>
+    <p>En septiembre un modelo aprovechó una mala configuración para salir a internet durante su entrenamiento. Ahora entrenan contra una copia indexada de la web, con todas las herramientas dentro del sandbox.</p>
+    <div class="why"><b>Por qué importa:</b> los dos laboratorios grandes ya tratan sus entrenamientos como algo de lo que hay que proteger a internet.</div>
+    <div class="links"><a href="https://openai.com/index/securing-our-frontier-model-training-environment/">Anuncio →</a></div>
+  </article>
+  <article class="item">
+    <h3>En corto</h3>
+    <ul class="short">
+      <li><b>Kimi K3.1 Pro</b> queda a menos de un punto de Claude Opus 5.5 en Terminal-Bench 4.0; los pesos se liberan el 4 de noviembre. <a href="https://www.kimi.ai/blog/kimi-k3-1-pro">Ver</a></li>
+      <li><b>Google Cloud</b> vende modelos GPT-6 en vista previa privada: el único hyperscaler con Gemini, Claude y GPT. <a href="https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers">Ver</a></li>
+      <li><b>EE.UU.</b> sacó DeepSeek de sus agencias civiles federales, incluidos productos de terceros construidos sobre él. <a href="https://www.govinfo.gov/content/pkg/FR-2026-10-20/pdf/2026-21447.pdf">Ver</a></li>
+    </ul>
+  </article>
+  <article class="item">
+    <h3>Curiosidad: un robot que nada con músculo vivo</h3>
+    <div class="meta">23 de octubre de 2026 · MIT vía ScienceDaily</div>
+    <p>Un robot delgado como papel, movido por células musculares vivas que responden a destellos de luz. Biología más robótica: también para La Sonrisita.</p>
+    <div class="links"><a href="https://www.sciencedaily.com/releases/2026/10/261022081308.htm">Leer más →</a></div>
+  </article>
+</section>
+
+<!-- PANORAMAS -->
+<section id="panoramas" role="tabpanel" aria-labelledby="t-panoramas" style="--c:var(--panoramas)" hidden>
+  <div class="sec-head"><h2>Panoramas</h2><p>Región de Valparaíso · todo es a futuro · precios “desde” al 27/10</p></div>
+  <article class="item">
+    <div><span class="tag free">Gratis</span><span class="tag who">Familia</span></div>
+    <h3>Bienal Internacional de Artes de Valparaíso</h3>
+    <div class="meta">Hoy mar 27, 18:30 · Galería Municipal de Arte · Vie 30, 12:30 · Museo Baburizza</div>
+    <p>Se inauguran las partes III y II de “Fantasías, fantasmas y fulgores”. Son 100 obras y actividades gratuitas hasta febrero de 2027.</p>
+    <div class="links"><a href="https://municipalidaddevalparaiso.cl/la-bienal-de-artes-ya-comenzo-valparaiso-invita-a-disfrutar-100-obras-y-actividades-gratuitas-hasta-febrero/">Info oficial →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">$2.000</span><span class="tag who">Pareja</span></div>
+    <h3>Festival Puerto de Ideas</h3>
+    <div class="meta">6 al 8 de noviembre · varios recintos de Valparaíso</div>
+    <p>Más de 40 charlas. Para ustedes: “IA generativas: un terremoto social, cultural y civilizatorio” (dom 8, Duoc UC), “Hackear el mundo” (dom 8, Parque Cultural) y Mircea Cărtărescu (dom 8, Aula Magna UV).</p>
+    <div class="links"><a href="https://ticketplus.cl/events/ia-generativas-un-terremoto-social-cultural-y-civilizatorio">Entradas IA →</a><a href="https://ticketplus.cl/events/hackear-el-mundo-la-delgada-linea-entre-seguridad-y-vigilancia">Entradas Hackear →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">Pagado</span><span class="tag who">Adultos</span></div>
+    <h3>Halloween en Viña · sábado 31 de octubre</h3>
+    <p><b>Sporting Club</b>, 22:00: disfraces y house; mujeres +21, hombres +23; desde $18.000. <b>Sheraton Miramar</b>, 22:00 a 01:30: fiesta “barco fantasma” con concurso de disfraces.</p>
+    <div class="links"><a href="https://chileestuyo.cl/halloween-2026-en-regiones-6-panoramas-con-fiestas-musica-y-disfraces-en-chile/">Sporting →</a><a href="https://foodiecl.com/panoramas-vina-del-mar-octubre-halloween-sheraton-miramar/">Sheraton →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">$19.800</span><span class="tag who">Pareja</span></div>
+    <h3>Fabrizio Copano en Quilpué</h3>
+    <div class="meta">Jueves 5 de noviembre, 20:00 · Teatro Municipal de Quilpué</div>
+    <div class="links"><a href="https://ticketplus.cl/events/fabrizio-copano-quilpue-teatro-municipal-05-de-noviembre-20-00-hrs">Entradas →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">$28.750</span></div>
+    <h3>Marty Friedman (ex-Megadeth)</h3>
+    <div class="meta">Viernes 13 de noviembre · Club Segundo Piso, Valparaíso</div>
+    <div class="links"><a href="https://ticketplus.cl/events/marty-friedman-scenes-34th-anniversary-valparaiso">Entradas →</a></div>
+  </article>
+</section>
+
+<!-- CASAS -->
+<section id="casas" role="tabpanel" aria-labelledby="t-casas" style="--c:var(--casas);max-width:none" hidden>
+  <div class="sec-head"><h2>Casas en venta</h2><p>Comuna de Valparaíso: Curauma, Placilla y cerros · tope UF 4.000 (≈ $163 millones) · UF estimada a ~$40.800</p></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Ubicación</th><th>Precio</th><th>Dorm · Baños</th><th>m²</th><th>Extras</th><th>Aviso</th></tr></thead>
+    <tbody>
+      <tr><td><b>⭐ Bosques de Curauma</b><br>Pareada en condominio</td><td class="num">UF 3.750</td><td>4 · 3</td><td class="num">79</td><td>Estac., piscina, conserje</td><td><a href="https://casas.trovit.cl/detail/f40933f6-5a05-4fa7-a982-49f00b8c77e0">~20 días</a></td></tr>
+      <tr><td><b>Placilla Oriente</b><br>Terreno amplio, casa por terminar</td><td class="num">$120 M<span class="est">≈ UF 2.940</span></td><td>4 · 4</td><td>No informado</td><td>Estac.</td><td><a href="https://casas.trovit.cl/detail/07699f6c-d207-417f-b931-7fa4e9a8738e">5 días</a> <span class="tag new">Reciente</span></td></tr>
+      <tr><td><b>Bosques de Curauma</b><br>Condominio</td><td class="num">$159 M<span class="est">≈ UF 3.900</span></td><td>3 · 2,5</td><td class="num">79</td><td>Piscina, conserje</td><td><a href="https://casas.trovit.cl/detail/01a03983-e750-7ee2-852e-f4fada3a3c1a">~6 días</a></td></tr>
+      <tr><td><b>Llanos de Curauma</b></td><td class="num">$159 M<span class="est">≈ UF 3.900</span></td><td>3 · 2</td><td class="num">95</td><td>Estac. no informado</td><td><a href="https://casas.trovit.cl/detail/338f755c-d270-4646-a10b-b7f2ae8af5c6">~13 días</a></td></tr>
+      <tr><td><b>Casa esquina, Placilla</b><br>Sitio 500 m², 2 viviendas</td><td class="num">$149 M<span class="est">≈ UF 3.650</span></td><td>3 · 2</td><td class="num">100</td><td>Material sólido</td><td><a href="https://casas.trovit.cl/detail/01a08be8-67f6-775b-a3cb-abe6e5c8a631">+30 días</a></td></tr>
+      <tr><td><b>Placilla, cerca del Museo</b></td><td class="num">$70 M<span class="est">≈ UF 1.720</span></td><td>2 · 1</td><td class="num">82</td><td>3 estac.</td><td><a href="https://casas.trovit.cl/detail/01a11d9a-279f-7580-a942-89b9977b294d">~18 días</a></td></tr>
+      <tr><td><b>Cerro Placeres</b></td><td class="num">UF 3.433</td><td>4 · 2</td><td class="num">98</td><td><i>Vigencia no verificada</i></td><td><a href="https://www.portalinmobiliario.com/venta/casa/cerro-placeres-valparaiso-valparaiso-valparaiso">Listado</a></td></tr>
+      <tr><td><b>Cerro Esperanza</b> (2)</td><td class="num">UF 3.000<br>UF 3.765</td><td>3 · 1</td><td>80 / no inf.</td><td>Remodelada / con patio · <i>no verificada</i></td><td><a href="https://www.portalinmobiliario.com/venta/casa/cerro-esperanza-valparaiso-valparaiso-valparaiso">Listado</a></td></tr>
+    </tbody>
+  </table></div>
+  <article class="item" style="margin-top:18px;background:var(--tint);border-radius:8px;padding:14px 16px;border-top:none">
+    <h3>💡 Datos para comprar</h3>
+    <ul class="short">
+      <li><b>Tasas hipotecarias bajo 4%:</b> el promedio fue 3,97% en junio de 2026, tercer mes seguido bajo 4% y el primer semestre más barato desde 2021 (Banco Central, vía Emol, 7 jul). Comparar 2-3 bancos con la misma simulación sigue siendo la mejor jugada. <a href="https://www.emol.com/noticias/Economia/2026/07/07/1204934/tasa-creditos-hipotecarios.html">Leer →</a></li>
+      <li><b>Subsidio DS1:</b> El Mostrador publicó el 22 de octubre una guía sobre el nuevo tramo de postulación. En una próxima edición traemos fechas y requisitos confirmados; mientras, la fuente oficial es el Minvu. <a href="https://www.minvu.gob.cl">Minvu →</a></li>
+    </ul>
+  </article>
+  <p class="note"><b>También en el radar:</b> proyecto nuevo Terrazas de Curauma III (Galilea), casas 3D entre UF 3.900 y 3.990, entrega futura (<a href="https://bancoestado.enlaceinmobiliario.cl/listado/region-valparaiso/valparaiso">ver</a>). Apenas sobre el tope: Alto Laguna 3D/3B a UF 4.300 y Trinares del Alba 3D/2B a UF 4.490. Portal Inmobiliario bloqueó la verificación automática de los avisos de cerros, así que conviene confirmarlos.</p>
+</section>
+
+<!-- REGION -->
+<section id="region" role="tabpanel" aria-labelledby="t-region" style="--c:var(--region)" hidden>
+  <div class="sec-head"><h2>Región</h2><p>Lo que cambia en el día a día de Valparaíso</p></div>
+  <article class="item">
+    <h3>$1.000 millones para reparar calles, Placilla incluida</h3>
+    <div class="meta">23 de octubre de 2026 · Municipalidad de Valparaíso</div>
+    <p>Reparación de calzadas y recarpeteo con fondos municipales en el plan, Laguna Verde y Placilla de Peñuelas; siguen calle Pellé y 11 de Septiembre en Rodelillo, entre otras.</p>
+    <div class="why"><b>Por qué importa:</b> es justo la zona donde están buscando casa.</div>
+    <div class="links"><a href="https://municipalidaddevalparaiso.cl/que-calles-de-valparaiso-seran-reparadas-conoce-los-proximos-sectores-que-seran-intervenidos/">Ver sectores →</a></div>
+  </article>
+</section>
+
+<!-- MURO -->
+<section id="muro" role="tabpanel" aria-labelledby="t-muro" style="--c:#b8566e" hidden>
+  <div class="sec-head"><h2>Nuestro muro</h2><p>Un rincón para comentar lo que leyeron, guardar ideas o dejarse un mensajito</p></div>
+  <form id="muro-form" class="composer" autocomplete="off">
+    <div class="firma" role="radiogroup" aria-label="¿Quién escribe?">
+      <span class="lbl">Escribe:</span>
+      <label><input type="radio" name="firma" id="f-fonseca" value="El Fonseca"> <span>💻 El Fonseca</span></label>
+      <label><input type="radio" name="firma" id="f-sonrisita" value="La Sonrisita"> <span>💗 La Sonrisita</span></label>
+    </div>
+    <div id="clave-box" class="clave-box" hidden>
+      <label for="muro-clave">Palabra clave de nosotros <span class="tip">(se pide una sola vez en este celular)</span></label>
+      <input id="muro-clave" type="password" autocomplete="off" placeholder="Escribe la palabra clave">
+    </div>
+    <label for="muro-texto" class="sr">Mensaje</label>
+    <textarea id="muro-texto" maxlength="1000" rows="3" placeholder="¿Qué les pareció? ¿Vamos al panorama del sábado? ¿Vemos esa casa?"></textarea>
+    <div class="row">
+      <label for="muro-tema" class="sr">Tema</label>
+      <select id="muro-tema">
+        <option value="General">💬 General</option>
+        <option value="La Sonrisita">💗 La Sonrisita</option>
+        <option value="El Fonseca">💻 El Fonseca</option>
+        <option value="Panoramas">🎟️ Panoramas</option>
+        <option value="Casas">🏡 Casas</option>
+        <option value="Región">⚓ Región</option>
+        <option value="Cariño">❤️ Cariño</option>
+      </select>
+      <button type="submit" id="muro-enviar" class="send">Publicar</button>
+    </div>
+    <p id="muro-estado" class="estado" aria-live="polite"></p>
+  </form>
+  <div id="muro-lista" class="muro-lista">
+    <p class="vacio">Cargando mensajes…</p>
+  </div>
+</section>
+
+</main>
+<footer class="wrap">Nuestro Radar · hecho a medida para Luis y Jocelyn · verificado al 27/10/2026 cuando fue posible</footer>
+
+<script>
+(function(){
+  var ids=["portada","sonrisita","fonseca","panoramas","casas","region","muro"];
+  function show(id,focus){
+    if(ids.indexOf(id)<0) id="portada";
+    ids.forEach(function(x){
+      var p=document.getElementById(x), t=document.getElementById("t-"+x), on=x===id;
+      p.hidden=!on; t.setAttribute("aria-selected",on?"true":"false"); t.tabIndex=on?0:-1;
+      if(on){ t.scrollIntoView({block:"nearest",inline:"center"}); if(focus) t.focus(); }
+    });
+  }
+  ids.forEach(function(x){
+    document.getElementById("t-"+x).addEventListener("click",function(){ location.hash=x; window.scrollTo(0,0); });
+  });
+  document.querySelectorAll("[data-go]").forEach(function(c){
+    c.addEventListener("click",function(){ location.hash=c.getAttribute("data-go"); window.scrollTo(0,0); });
+  });
+  document.querySelector(".tablist").addEventListener("keydown",function(e){
+    var cur=ids.indexOf((location.hash||"#portada").slice(1)); if(cur<0) cur=0;
+    if(e.key==="ArrowRight"){location.hash=ids[(cur+1)%ids.length];e.preventDefault();}
+    if(e.key==="ArrowLeft"){location.hash=ids[(cur-1+ids.length)%ids.length];e.preventDefault();}
+  });
+  window.addEventListener("hashchange",function(){ show(location.hash.slice(1),true); });
+  show((location.hash||"#portada").slice(1),false);
+})();
+</script>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+(function(){
+  var form=document.getElementById("muro-form"), txt=document.getElementById("muro-texto"),
+      tema=document.getElementById("muro-tema"), btn=document.getElementById("muro-enviar"),
+      estado=document.getElementById("muro-estado"), lista=document.getElementById("muro-lista"),
+      claveBox=document.getElementById("clave-box"), claveIn=document.getElementById("muro-clave");
+  function ls(k,v){try{if(v===undefined)return localStorage.getItem(k); if(v===null)localStorage.removeItem(k); else localStorage.setItem(k,v);}catch(e){return null}}
+  var cfg=window.RADAR_CONFIG||{};
+  if(!cfg.supabaseUrl||!cfg.supabaseAnonKey||!window.supabase){
+    lista.innerHTML='<p class="vacio">El muro se está configurando. ¡Muy pronto podrán escribir aquí! 💌</p>';
+    btn.disabled=true; txt.disabled=true; return;
+  }
+  var sb=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey);
+  var f=ls("radar-firma"); if(f){var el=document.querySelector('input[name="firma"][value="'+f+'"]'); if(el) el.checked=true;}
+  form.addEventListener("change",function(e){ if(e.target.name==="firma") ls("radar-firma",e.target.value); });
+  if(!ls("radar-clave")) claveBox.hidden=false;
+  var mine=JSON.parse(ls("radar-mios")||"[]");
+  var docs=[];
+  function hace(iso){
+    var ms=new Date(iso).getTime(), d=(Date.now()-ms)/1000;
+    if(d<60) return "recién"; if(d<3600) return "hace "+Math.floor(d/60)+" min"; if(d<86400) return "hace "+Math.floor(d/3600)+" h";
+    var dt=new Date(ms); return dt.toLocaleDateString("es-CL",{day:"numeric",month:"short"})+" · "+dt.toLocaleTimeString("es-CL",{hour:"2-digit",minute:"2-digit"});
+  }
+  function render(){
+    lista.innerHTML="";
+    if(!docs.length){var p=document.createElement("p");p.className="vacio";p.textContent="Todavía no hay mensajes. ¡Estrénenlo con el primero! 💌";lista.appendChild(p);return;}
+    docs.forEach(function(m){
+      var card=document.createElement("article");
+      card.className="msg"+(m.firma==="La Sonrisita"?" sonrisita":" fonseca");
+      var top=document.createElement("div"); top.className="top";
+      var who=document.createElement("span"); who.className="who"; who.textContent=(m.firma==="La Sonrisita"?"💗 ":"💻 ")+m.firma;
+      var t=document.createElement("span"); t.className="tema"; t.textContent=m.tema||"General";
+      var when=document.createElement("span"); when.textContent=hace(m.creado);
+      top.appendChild(who); top.appendChild(t); top.appendChild(when);
+      if(mine.indexOf(m.id)>=0){
+        var del=document.createElement("button"); del.type="button"; del.className="del"; del.textContent="Borrar";
+        del.addEventListener("click",async function(){
+          if(del.dataset.ok!=="1"){del.dataset.ok="1";del.textContent="¿Seguro? Toca de nuevo";setTimeout(function(){del.dataset.ok="";del.textContent="Borrar";},4000);return;}
+          del.disabled=true;
+          var r=await sb.rpc("borrar",{p_clave:ls("radar-clave")||"",p_id:m.id});
+          if(r.error){estado.textContent="No se pudo borrar. Intenta de nuevo.";del.disabled=false;} else {docs=docs.filter(function(x){return x.id!==m.id});render();}
+        });
+        top.appendChild(del);
+      }
+      var body=document.createElement("p"); body.className="txt"; body.textContent=m.texto;
+      card.appendChild(top); card.appendChild(body); lista.appendChild(card);
+    });
+  }
+  async function cargar(){
+    var r=await sb.from("muro").select("id,firma,tema,texto,creado").order("creado",{ascending:false}).limit(100);
+    if(r.error){lista.innerHTML='<p class="vacio">No se pudieron cargar los mensajes. Recarga la página.</p>';return;}
+    docs=r.data; render();
+  }
+  cargar();
+  sb.channel("muro").on("postgres_changes",{event:"*",schema:"public",table:"muro"},function(p){
+    if(p.eventType==="INSERT"){ if(!docs.some(function(x){return x.id===p.new.id})) docs.unshift(p.new); }
+    if(p.eventType==="DELETE"){ docs=docs.filter(function(x){return x.id!==p.old.id}); }
+    render();
+  }).subscribe();
+  setInterval(render,60000);
+  form.addEventListener("submit",async function(e){
+    e.preventDefault();
+    var t=txt.value.trim(); if(!t){estado.textContent="Escribe algo antes de publicar.";txt.focus();return;}
+    var fi=document.querySelector('input[name="firma"]:checked'); if(!fi){estado.textContent="Elige quién escribe: El Fonseca o La Sonrisita.";return;}
+    var clave=ls("radar-clave")||claveIn.value.trim(); if(!clave){estado.textContent="Escribe la palabra clave.";claveIn.focus();return;}
+    btn.disabled=true; estado.textContent="Publicando…";
+    var r=await sb.rpc("publicar",{p_clave:clave,p_firma:fi.value,p_tema:tema.value,p_texto:t.slice(0,1000)});
+    btn.disabled=false;
+    if(r.error){
+      if(/clave/i.test(r.error.message)){ls("radar-clave",null);claveBox.hidden=false;estado.textContent="La palabra clave no es correcta. Inténtalo de nuevo.";}
+      else estado.textContent="No se pudo publicar. Revisa tu conexión e intenta de nuevo.";
+      return;
+    }
+    ls("radar-clave",clave); claveBox.hidden=true; claveIn.value="";
+    var nuevo=r.data; mine.push(nuevo.id); ls("radar-mios",JSON.stringify(mine.slice(-200)));
+    if(!docs.some(function(x){return x.id===nuevo.id})) docs.unshift(nuevo);
+    txt.value=""; estado.textContent="¡Publicado! 💌"; render();
+  });
+})();
+</script>
+</body>
+</html>
