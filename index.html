@@ -126,6 +126,8 @@ td.num{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
 .clave-box{display:grid;gap:6px;font-size:14px;font-weight:700}.clave-box .tip{font-weight:400;color:var(--muted)}.clave-box input{font:16px var(--body);padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg)}
 .vacio{color:var(--muted);text-align:center;padding:18px;background:var(--surface);border:1px dashed var(--line);border-radius:12px;margin:0}
 footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 30px}
+.foto{width:88px;padding:6px!important}.foto img,.foto .sinfoto{width:80px;height:60px;border-radius:6px;object-fit:cover;display:block;background:var(--tint)}
+.foto .sinfoto{display:flex;align-items:center;justify-content:center;font-size:26px}
 </style>
 </head>
 <body>
@@ -340,16 +342,16 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
 <section id="casas" role="tabpanel" aria-labelledby="t-casas" style="--c:var(--casas);max-width:none" hidden>
   <div class="sec-head"><h2>Casas en venta</h2><p>Comuna de Valparaíso: Curauma, Placilla y cerros · tope UF 4.000 (≈ $163 millones) · UF estimada a ~$40.800</p></div>
   <div class="tbl"><table>
-    <thead><tr><th>Ubicación</th><th>Precio</th><th>Dorm · Baños</th><th>m²</th><th>Extras</th><th>Aviso</th></tr></thead>
+    <thead><tr><th>Foto</th><th>Ubicación</th><th>Precio</th><th>Dorm · Baños</th><th>m²</th><th>Extras</th><th>Aviso</th></tr></thead>
     <tbody>
-      <tr><td><b>⭐ Bosques de Curauma</b><br>Pareada en condominio</td><td class="num">UF 3.750</td><td>4 · 3</td><td class="num">79</td><td>Estac., piscina, conserje</td><td><a href="https://casas.trovit.cl/detail/f40933f6-5a05-4fa7-a982-49f00b8c77e0">~20 días</a></td></tr>
-      <tr><td><b>Placilla Oriente</b><br>Terreno amplio, casa por terminar</td><td class="num">$120 M<span class="est">≈ UF 2.940</span></td><td>4 · 4</td><td>No informado</td><td>Estac.</td><td><a href="https://casas.trovit.cl/detail/07699f6c-d207-417f-b931-7fa4e9a8738e">5 días</a> <span class="tag new">Reciente</span></td></tr>
-      <tr><td><b>Bosques de Curauma</b><br>Condominio</td><td class="num">$159 M<span class="est">≈ UF 3.900</span></td><td>3 · 2,5</td><td class="num">79</td><td>Piscina, conserje</td><td><a href="https://casas.trovit.cl/detail/01a03983-e750-7ee2-852e-f4fada3a3c1a">~6 días</a></td></tr>
-      <tr><td><b>Llanos de Curauma</b></td><td class="num">$159 M<span class="est">≈ UF 3.900</span></td><td>3 · 2</td><td class="num">95</td><td>Estac. no informado</td><td><a href="https://casas.trovit.cl/detail/338f755c-d270-4646-a10b-b7f2ae8af5c6">~13 días</a></td></tr>
-      <tr><td><b>Casa esquina, Placilla</b><br>Sitio 500 m², 2 viviendas</td><td class="num">$149 M<span class="est">≈ UF 3.650</span></td><td>3 · 2</td><td class="num">100</td><td>Material sólido</td><td><a href="https://casas.trovit.cl/detail/01a08be8-67f6-775b-a3cb-abe6e5c8a631">+30 días</a></td></tr>
-      <tr><td><b>Placilla, cerca del Museo</b></td><td class="num">$70 M<span class="est">≈ UF 1.720</span></td><td>2 · 1</td><td class="num">82</td><td>3 estac.</td><td><a href="https://casas.trovit.cl/detail/01a11d9a-279f-7580-a942-89b9977b294d">~18 días</a></td></tr>
-      <tr><td><b>Cerro Placeres</b></td><td class="num">UF 3.433</td><td>4 · 2</td><td class="num">98</td><td><i>Vigencia no verificada</i></td><td><a href="https://www.portalinmobiliario.com/venta/casa/cerro-placeres-valparaiso-valparaiso-valparaiso">Listado</a></td></tr>
-      <tr><td><b>Cerro Esperanza</b> (2)</td><td class="num">UF 3.000<br>UF 3.765</td><td>3 · 1</td><td>80 / no inf.</td><td>Remodelada / con patio · <i>no verificada</i></td><td><a href="https://www.portalinmobiliario.com/venta/casa/cerro-esperanza-valparaiso-valparaiso-valparaiso">Listado</a></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>⭐ Bosques de Curauma</b><br>Pareada en condominio</td><td class="num">UF 3.750</td><td>4 · 3</td><td class="num">79</td><td>Estac., piscina, conserje</td><td><a href="https://casas.trovit.cl/detail/f40933f6-5a05-4fa7-a982-49f00b8c77e0">~20 días</a></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Placilla Oriente</b><br>Terreno amplio, casa por terminar</td><td class="num">$120 M<span class="est">≈ UF 2.940</span></td><td>4 · 4</td><td>No informado</td><td>Estac.</td><td><a href="https://casas.trovit.cl/detail/07699f6c-d207-417f-b931-7fa4e9a8738e">5 días</a> <span class="tag new">Reciente</span></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Bosques de Curauma</b><br>Condominio</td><td class="num">$159 M<span class="est">≈ UF 3.900</span></td><td>3 · 2,5</td><td class="num">79</td><td>Piscina, conserje</td><td><a href="https://casas.trovit.cl/detail/01a03983-e750-7ee2-852e-f4fada3a3c1a">~6 días</a></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Llanos de Curauma</b></td><td class="num">$159 M<span class="est">≈ UF 3.900</span></td><td>3 · 2</td><td class="num">95</td><td>Estac. no informado</td><td><a href="https://casas.trovit.cl/detail/338f755c-d270-4646-a10b-b7f2ae8af5c6">~13 días</a></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Casa esquina, Placilla</b><br>Sitio 500 m², 2 viviendas</td><td class="num">$149 M<span class="est">≈ UF 3.650</span></td><td>3 · 2</td><td class="num">100</td><td>Material sólido</td><td><a href="https://casas.trovit.cl/detail/01a08be8-67f6-775b-a3cb-abe6e5c8a631">+30 días</a></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Placilla, cerca del Museo</b></td><td class="num">$70 M<span class="est">≈ UF 1.720</span></td><td>2 · 1</td><td class="num">82</td><td>3 estac.</td><td><a href="https://casas.trovit.cl/detail/01a11d9a-279f-7580-a942-89b9977b294d">~18 días</a></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Cerro Placeres</b></td><td class="num">UF 3.433</td><td>4 · 2</td><td class="num">98</td><td><i>Vigencia no verificada</i></td><td><a href="https://www.portalinmobiliario.com/venta/casa/cerro-placeres-valparaiso-valparaiso-valparaiso">Listado</a></td></tr>
+      <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Cerro Esperanza</b> (2)</td><td class="num">UF 3.000<br>UF 3.765</td><td>3 · 1</td><td>80 / no inf.</td><td>Remodelada / con patio · <i>no verificada</i></td><td><a href="https://www.portalinmobiliario.com/venta/casa/cerro-esperanza-valparaiso-valparaiso-valparaiso">Listado</a></td></tr>
     </tbody>
   </table></div>
   <article class="item" style="margin-top:18px;background:var(--tint);border-radius:8px;padding:14px 16px;border-top:none">
@@ -439,6 +441,7 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
 })();
 </script>
 
+<script>document.addEventListener("error",function(e){var t=e.target;if(t.tagName==="IMG"&&t.closest(".foto")){var x=document.createElement("span");x.className="sinfoto";x.textContent="🏠";t.replaceWith(x);}},true);</script>
 <script src="config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"></script>
 <script>if(!window.supabase){document.write('<script src="https://unpkg.com/@supabase/supabase-js@2.57.4/dist/umd/supabase.js"><\/script>');}</script>
