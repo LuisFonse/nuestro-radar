@@ -27,6 +27,11 @@ drop policy if exists "leer muro" on public.muro;
 create policy "leer muro" on public.muro for select to anon, authenticated using (true);
 -- radar_secreto: sin políticas = nadie lo lee desde la página
 
+-- Permisos explícitos (por si "Automatically expose new tables" está desactivado)
+grant usage on schema public to anon, authenticated;
+grant select on public.muro to anon, authenticated;
+revoke all on public.radar_secreto from anon, authenticated;
+
 -- Publicar: valida la palabra clave en el servidor
 create or replace function public.publicar(p_clave text, p_firma text, p_tema text, p_texto text)
 returns public.muro
