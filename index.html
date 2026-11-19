@@ -190,7 +190,7 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
         <path d="M180 101c-1.8-2.9-6-2.2-6 .7 0 2.6 6 5.9 6 5.9s6-3.3 6-5.9c0-2.9-4.2-3.6-6-.7z" fill="#f48aa0"/>
       </svg>
     </div>
-    <div class="eyebrow">Edición N°23 · miércoles 18 de noviembre de 2026</div>
+    <div class="eyebrow">Edición N°24 · jueves 19 de noviembre de 2026</div>
     <h1>Nuestro Radar</h1>
     <p>Para El Fonseca y La Sonrisita · Región de Valparaíso</p>
   </div>
@@ -201,9 +201,9 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <button class="tab" role="tab" id="t-portada" aria-controls="portada" style="--c:var(--harbor)">Portada</button>
     <button class="tab" role="tab" id="t-sonrisita" aria-controls="sonrisita" style="--c:var(--sonrisita)"><span class="dot"></span>La Sonrisita <span class="n">4</span></button>
     <button class="tab" role="tab" id="t-fonseca" aria-controls="fonseca" style="--c:var(--fonseca)"><span class="dot"></span>El Fonseca <span class="n">4</span></button>
-    <button class="tab" role="tab" id="t-panoramas" aria-controls="panoramas" style="--c:var(--panoramas)"><span class="dot"></span>Panoramas <span class="n">43</span></button>
+    <button class="tab" role="tab" id="t-panoramas" aria-controls="panoramas" style="--c:var(--panoramas)"><span class="dot"></span>Panoramas <span class="n">48</span></button>
     <button class="tab" role="tab" id="t-casas" aria-controls="casas" style="--c:var(--casas)"><span class="dot"></span>Casas <span class="n">26</span></button>
-    <button class="tab" role="tab" id="t-region" aria-controls="region" style="--c:var(--region)"><span class="dot"></span>Región <span class="n">4</span></button>
+    <button class="tab" role="tab" id="t-region" aria-controls="region" style="--c:var(--region)"><span class="dot"></span>Región <span class="n">3</span></button>
     <button class="tab" role="tab" id="t-muro" aria-controls="muro" style="--c:#b8566e"><span class="dot"></span>💬 Muro</button>
   </div></div>
 </nav>
@@ -212,47 +212,47 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
 
 <!-- PORTADA -->
 <section id="portada" role="tabpanel" aria-labelledby="t-portada" style="--c:var(--harbor);max-width:none">
-  <p class="lede">¡Buen miércoles, par! El Fonseca tiene que mirar dos cosas hoy. Salió el parche final de Oracle (ojo: las tres fallas de 9,9 en Database piden cuenta con Create Session, así que no son «sin clave» como dijimos ayer) y apareció Java4Shell, una falla en el decodificador Base64 de Java que afecta a Jira, Jenkins y Keycloak. Para La Sonrisita, el Minsal suma autotoma para detectar el VPH en la atención primaria desde 2027, y más de 4.500 personas de la región en lista de espera tendrán consultas gratis. En Panoramas, Wanderers juega la vuelta de la liguilla en Valparaíso el jueves 26, y ya hay fecha para un Festival de Cumbia en Trotamundos el 19 de diciembre. En Casas no hay nuevas y siguen las 26. Hoy hay movilización en el centro desde las 11:00.</p>
+  <p class="lede">¡Buen jueves, par! El Fonseca tiene tarea de base de datos: un investigador mostró cómo ejecutar código en Oracle sin usuario, encadenando la falla 9,9 de Oracle Text con una de ORDS, y en PostgreSQL basta con el permiso TEMPORARY que viene por defecto. Además, el HTTP/2 de NGINX tenía una falla de diez años, y hoy Anthropic sale a la bolsa a US$83 la acción. Para La Sonrisita, el ISP retira lotes de lorazepam y ondansetrón, el Minsal lanza una campaña contra el vape pensada para niños de la edad de la de 13, y hay una oferta TENS nueva en Valparaíso. En Panoramas, el domingo hay una corrida familiar por Av. Perú desde los 5 años, y Eva Ayllón viene a Viña para fin de año. En Casas no hay nuevas confirmadas, pero Portal Inmobiliario muestra varias por mirar. Y una corrección: la alerta roja del Aconcagua se levantó el lunes.</p>
   <div class="news-grid">
-    <button class="card" data-go="fonseca" style="--c:var(--fonseca)"><span class="k">El Fonseca</span><span class="t">🚨 Java4Shell: una falla de Java que golpea a Jira, Jenkins y Keycloak</span><span class="s">Oracle publicó el parche final (las 9,9 de Database piden Create Session) · hackearon el paquete agent-framework de Microsoft en PyPI</span></button>
-    <button class="card" data-go="sonrisita" style="--c:var(--sonrisita)"><span class="k">La Sonrisita</span><span class="t">Autotoma de VPH en la atención primaria desde 2027 (🆕)</span><span class="s">Plan Enlace: 4.586 personas de la región en espera tendrán consulta gratis · hoy parte la Semana de los Antibióticos · 12 ofertas TENS siguen abiertas</span></button>
-    <button class="card" data-go="panoramas" style="--c:var(--panoramas)"><span class="k">Panoramas</span><span class="t">Wanderers en la liguilla: la vuelta es en Valparaíso el jueves 26 (🆕)</span><span class="s">Festival de Cumbia en Trotamundos el 19/12 · Yilberking el 29/11 · cuentacuentos gratis el 28/11 · hoy, Lucas Espinoza en Trotamundos</span></button>
-    <button class="card" data-go="casas" style="--c:var(--casas)"><span class="k">Casas</span><span class="t">Sin casas nuevas: las 26 siguen en carrera</span><span class="s">Desde $250.000 · un posible aviso en Cerro O'Higgins por confirmar · el subsidio DS52 sigue sin llamado abierto</span></button>
-    <button class="card" data-go="region" style="--c:var(--region)"><span class="k">Región</span><span class="t">Hoy, movilización en el centro desde las 11:00</span><span class="s">Denuncian más de 100 despidos en la educación pública de Valparaíso · sigue la alerta roja por el Aconcagua</span></button>
+    <button class="card" data-go="fonseca" style="--c:var(--fonseca)"><span class="k">El Fonseca</span><span class="t">🚨 Oracle sin usuario: Oracle Text + ORDS encadenados</span><span class="s">PostgreSQL y MySQL con mínimos privilegios · nginx2root en HTTP/2 · Anthropic debuta en Nasdaq a US$83</span></button>
+    <button class="card" data-go="sonrisita" style="--c:var(--sonrisita)"><span class="k">La Sonrisita</span><span class="t">ISP retira lotes de lorazepam y ondansetrón (🆕)</span><span class="s">«¿Pa' qué fumas?», la campaña contra el vape · 1 oferta TENS nueva en Valparaíso · 6 días para el Día del TENS</span></button>
+    <button class="card" data-go="panoramas" style="--c:var(--panoramas)"><span class="k">Panoramas</span><span class="t">Reforest Running el domingo: 3K en familia frente al mar (🆕)</span><span class="s">Eva Ayllón + Inti-Illimani el 26/12 · Pedro Aznar el 29/11 · hoy, tributo a Lucybell gratis en Trotamundos</span></button>
+    <button class="card" data-go="casas" style="--c:var(--casas)"><span class="k">Casas</span><span class="t">Sin casas nuevas confirmadas: siguen las 26</span><span class="s">Portal Inmobiliario muestra casas en Subida Washington, Cerro Florida y Barón, por mirar · la UF hoy en $41.364</span></button>
+    <button class="card" data-go="region" style="--c:var(--region)"><span class="k">Región</span><span class="t">Corrección: el Aconcagua ya no está en alerta roja</span><span class="s">Año Nuevo sin fiesta en Plaza Sotomayor · siguen los desvíos en Von Schroeders</span></button>
     <button class="card" data-go="muro" style="--c:#b8566e"><span class="k">💬 Muro</span><span class="t">Déjense un mensaje</span><span class="s">Escriban aquí mismo, eligiendo el tema</span></button>
   </div>
   <div class="sobremesa">
     <span class="eyebrow">Para la sobremesa</span>
-    Wanderers se juega el ascenso en dos partidos. Si la familia tuviera que armar su propio «equipo» de siete para una liguilla, ¿quién va al arco, quién es el goleador, quién el que grita desde la banca y quién lleva el mate para el entretiempo? Que cada uno elija el puesto de otro.
+    Este Año Nuevo no habrá fiesta en Plaza Sotomayor. Si los siete tuvieran que elegir su propio «palco» para ver los fuegos (un cerro, una terraza, la playa o un bote), ¿cuál sería y qué llevaría cada uno para la once de medianoche?
   </div>
 </section>
 
 <!-- SONRISITA -->
 <section id="sonrisita" role="tabpanel" aria-labelledby="t-sonrisita" style="--c:var(--sonrisita)" hidden>
   <div class="sec-head"><h2>La Sonrisita</h2><p>Salud, enfermería y lo que se mueve en el mundo TENS</p></div>
-  <article class="item">
-    <h3>Autotoma para detectar el VPH: el Minsal la lleva a la atención primaria</h3>
-    <div class="meta">Martes 17 de noviembre de 2026 (Día Mundial para la Eliminación del VPH) · Minsal · 🆕 nuevo</div>
-    <p>Desde 2027, la estrategia de detección precoz del cáncer cervicouterino se amplía en la APS. Suma más de 13 mil kits de autotoma para que mujeres de 35 a 45 años se tomen la muestra de VPH ellas mismas, y extiende el horario de matronas los sábados en los cesfam para el PAP y la PCR de VPH. Hay una diferencia en las cifras: el subsecretario habló de 100 comunas y la ministra de 128. La nota no dice si entra alguna comuna de la región. Los datos de fondo pesan: más de 1.600 diagnósticos y 600 muertes al año, y solo un 12,3% de las mujeres tiene su examen al día.</p>
-    <div class="why"><b>Por qué importa:</b> en el cesfam, el TENS suele ser quien recuerda el PAP pendiente o explica el examen. La autotoma puede sumar a muchas mujeres que hoy no se lo hacen por vergüenza o falta de tiempo.</div>
-    <div class="links"><a href="https://www.minsal.cl/ministerio-de-salud-amplia-a-100-comunas-la-estrategia-de-deteccion-precoz-del-cancer-cervicouterino-en-la-aps/">Minsal →</a> <a href="https://www.t13.cl/noticia/nacional/prevencion-cancer-cervicouterino-minsal-ampliara-100-comunas-deteccion-precoz-17-11-2026">T13 →</a></div>
+  <article class="item alert">
+    <h3>ISP ordena retirar lotes de lorazepam y ondansetrón</h3>
+    <div class="meta">Lunes 16 de noviembre de 2026 · Radio Agricultura · 🆕 nuevo para el boletín</div>
+    <p>El Instituto de Salud Pública emitió una alerta para retirar del mercado lotes de dos remedios que se usan harto en la sala: lorazepam (ansiolítico) y ondansetrón (para las náuseas). No pude abrir la nota completa, así que los lotes, laboratorios y el motivo exacto están en el enlace. La semana anterior, el 12 de noviembre, el ISP ya había pedido retirar un lote de un antibiótico inyectable.</p>
+    <div class="why"><b>Por qué importa:</b> en el servicio, el TENS suele ordenar el carro y el stock de la unidad. Vale la pena revisar con la enfermera o con farmacia si alguno de esos lotes está en el botiquín.</div>
+    <div class="links"><a href="https://www.radioagricultura.cl/noticias/nacional/isp-alerta-retiro-medicamentos-lorazepam-ondansetron_20261116/">Radio Agricultura →</a> <a href="https://www.radioagricultura.cl/noticias/nacional/isp-emite-alerta-por-antibiotico-inyectable-revisa-el-lote-que-debe-ser-retirado-del-mercado_20261112/">Antibiótico (12/11) →</a></div>
   </article>
   <article class="item">
-    <h3>Plan Enlace: consultas gratis para 4.586 personas de la región en lista de espera</h3>
-    <div class="meta">G5 Noticias, martes 17 de noviembre de 2026 · 🆕 nuevo</div>
-    <p>Es un acuerdo entre el Minsal, Fonasa y Caja Los Andes. Pacientes del sistema público que llevan seis meses o más esperando una consulta No GES de ginecología, traumatología, oftalmología u otorrino podrán atenderse sin costo en cuatro centros de Bupa e IntegraMédica en la región. Se revisa en cajalosandes.cl/listadeespera si uno está en la lista, se pide hora eligiendo especialidad y comuna, y el centro confirma en hasta 48 horas hábiles.</p>
-    <div class="why"><b>Por qué importa:</b> es un dato concreto para dar a pacientes o familiares que llevan meses esperando hora con el especialista.</div>
-    <div class="links"><a href="https://g5noticias.cl/2026/11/17/mas-de-4-500-personas-de-la-region-de-valparaiso-en-listas-de-espera-no-ges-podran-acceder-a-consultas-medicas-sin-costo-gracias-a-alianza-publico-privada/">G5 Noticias →</a></div>
+    <h3>«¿Pa' qué fumas?»: el Minsal le habla a los niños de 12 a 14 sobre el vape</h3>
+    <div class="meta">Viernes 13 de noviembre de 2026 · Minsal · 🆕 nuevo para el boletín · la campaña dura un mes</div>
+    <p>Con monitos animados de pulmones, cerebros y corazones dañados, y unas «frutitas mentirosas» que representan los saborizantes del vape, el Minsal lanzó una campaña en redes, radio y cines. Las cifras de la Encuesta Mundial de Tabaco en Jóvenes 2024: uno de cada tres escolares de 13 a 15 años ha probado vapeadores con nicotina, y el 15% los usó el último mes, más que los que fuman cigarro. En Chile, el tabaco se asocia a unas 19.371 muertes al año, más de 50 al día.</p>
+    <div class="why"><b>Por qué importa:</b> la de 13 está justo en la edad a la que apunta la campaña. Puede ser la excusa para conversarlo en la casa sin sermón, mirando los videos juntos.</div>
+    <div class="links"><a href="https://www.minsal.cl/pa-que-fumas-nueva-campana-ministerio-de-salud-alerta-el-dano-del-tabaco-y-vapeadores-en-adolescentes/">Minsal →</a></div>
   </article>
   <article class="item">
-    <h3>Hoy parte la Semana de los Antibióticos, y en 7 días es el Día del TENS</h3>
-    <div class="meta">Miércoles 18 al martes 24 de noviembre · OPS/OMS · sigue vigente · Día del TENS: miércoles 25 de noviembre</div>
-    <p>Desde hoy corre la Semana Mundial de Concientización sobre la Resistencia a los Antimicrobianos («Una sola salud, una sola acción»). Lo de siempre, pero dicho de nuevo esta semana: antibióticos solo con receta, terminar el tratamiento y no botar remedios por el desagüe. Y queda una semana para el Día del TENS.</p>
+    <h3>Faltan 6 días para el Día del TENS</h3>
+    <div class="meta">Miércoles 25 de noviembre · sigue vigente · la Semana de los Antibióticos (OPS/OMS) sigue hasta el martes 24</div>
+    <p>El miércoles 25 es el día del Técnico en Enfermería de Nivel Superior. Si en el servicio están armando algo, todavía hay tiempo. Y mientras tanto sigue la Semana Mundial de Concientización sobre la Resistencia a los Antimicrobianos: antibióticos solo con receta y terminar el tratamiento.</p>
     <div class="links"><a href="https://www.paho.org/es/campanas/semana-mundial-concientizacion-sobre-resistencia-antimicrobianos-2026">OPS →</a></div>
   </article>
   <article class="item">
     <h3>📋 Concursos y ofertas TENS</h3>
-    <div class="meta">Sin ofertas nuevas hoy · 12 siguen abiertas (3 públicas, 9 privadas) · ninguna cierra en los próximos 3 días; la más próxima es pabellón central en Viña (30/11)</div>
+    <div class="meta">1 oferta nueva para el boletín (ELEAM en Valparaíso) · 13 abiertas (3 públicas, 10 privadas) · ninguna cierra en los próximos 3 días; la más próxima es pabellón central en Viña (lun 30/11, en 11 días)</div>
     <p><b>Públicos</b></p>
 <div class="tbl"><table>
 <thead><tr><th>Institución</th><th>Cargo / servicio</th><th>Comuna</th><th>Renta</th><th>Cierre</th><th>Enlace</th></tr></thead>
@@ -270,6 +270,7 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
 <tr><td><b>Mundo Clínico (institución de salud)</b></td><td>TENS Médico Quirúrgico; jornada completa en 4° turno</td><td>Valparaíso (el aviso menciona Viña del Mar)</td><td>$670.000</td><td class="num">5/12</td><td><a href="https://www.chiletrabajos.cl/trabajo/tens-medico-quirurgico-vina-del-mar-3747643">Postular</a> <span class="tag who">Sigue abierto</span></td></tr>
 <tr><td><b>Clínica Ciudad del Mar</b></td><td>Toma de muestras (reemplazo)</td><td>Viña del Mar</td><td>$535.535</td><td class="num">15/12</td><td><a href="https://www.chiletrabajos.cl/trabajo/tens-toma-muestra-reemplazo-3907843">Postular</a> <span class="tag who">Sigue abierto</span></td></tr>
 <tr><td><b>Clínica Ciudad del Mar</b></td><td>Técnicos en Enfermería para cobertura; jornada completa, con casino</td><td>Valparaíso (según el aviso)</td><td>No informada</td><td class="num">28/12</td><td><a href="https://www.chiletrabajos.cl/trabajo/3913780">Postular</a> <span class="tag who">Sigue abierto</span></td></tr>
+<tr><td><b>ELEAM Nostri Nonni</b></td><td>TENS administrativo; jornada completa, plazo fijo</td><td>Valparaíso</td><td>No informada</td><td class="num">26/12</td><td><a href="https://www.chiletrabajos.cl/trabajo/3912810">Postular</a> <span class="tag new">🆕 Nuevo</span></td></tr>
 <tr><td><b>Mundo Clínico</b></td><td>Plan de vacaciones</td><td>Viña del Mar</td><td>$680.000</td><td class="num">4/01/2027</td><td><a href="https://www.chiletrabajos.cl/trabajo/plan-de-vacaciones-tens-vina-del-mar-3918188">Postular</a> <span class="tag who">Sigue abierto</span></td></tr>
 <tr><td><b>Empresa confidencial</b></td><td>Central de esterilización</td><td>Viña del Mar</td><td>No informada</td><td class="num">5/01/2027</td><td><a href="https://www.chiletrabajos.cl/trabajo/tens-central-esterilizaci-n-vi-a-del-mr-3918816">Postular</a> <span class="tag who">Sigue abierto</span></td></tr>
 <tr><td><b>Sanatorio Marítimo</b></td><td>TENS, aseo y confort</td><td>Viña del Mar</td><td>$590.000 líquidos</td><td class="num">6/01/2027</td><td><a href="https://www.chiletrabajos.cl/trabajo/tens-aseo-y-confort-3919383">Postular</a> <span class="tag who">Sigue abierto</span></td></tr>
@@ -277,61 +278,69 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
 <tr><td><b>Hogar San Judas Tadeo</b></td><td>TENS por turnos</td><td>Valparaíso</td><td>$30.000 líquidos por turno</td><td class="num">11/01/2027</td><td><a href="https://www.chiletrabajos.cl/trabajo/tens-3921670">Postular</a> <span class="tag who">Sigue abierto</span></td></tr>
 </tbody>
 </table></div>
-    <p class="note">Hoy no encontré ofertas TENS nuevas y vigentes en la región. Revisé dos avisos de Viña que aparecían en las búsquedas: uno de enfermería o tecnología médica en un centro médico y otro de TENS domiciliario de Xinerlink, y los dos figuran expirados. Tampoco hay concursos nuevos en empleospublicos.cl ni en los servicios de salud. Computrabajo no se pudo revisar. Las ofertas de la tabla vienen de revisiones anteriores (las de Quilpué y Mundo Clínico se verificaron ayer): confirmen antes de postular.</p>
+    <p class="note">La nueva es de un hogar de adultos mayores en Valparaíso: publicada el 12 de octubre, pero con cierre el 26 de diciembre, así que sigue vigente. En Jooble aparecen dos avisos de esta semana en Viña que no pude abrir para ver cierre ni enlace directo: «TENS / cuidadora para ELEAM» en Chorrillos (hace 2 días) y «TENS urgente para maternidad» de Grupo Integra (hace 5 días). Si les interesan, búsquenlos por nombre en <a href="https://cl.jooble.org/trabajo-tens/Vi%C3%B1a-del-Mar">Jooble</a>. No hay concursos nuevos en empleospublicos.cl ni en los servicios de salud, y Computrabajo no se pudo revisar. El resto de la tabla viene de revisiones anteriores: confirmen antes de postular.</p>
   </article>
 </section>
 
 <!-- FONSECA -->
 <section id="fonseca" role="tabpanel" aria-labelledby="t-fonseca" style="--c:var(--fonseca)" hidden>
-  <div class="sec-head"><h2>El Fonseca</h2><p>Software, IA y seguridad · aviso previo de Oracle y resúmenes de The Hacker News; confirmen versiones en el aviso oficial del fabricante</p></div>
+  <div class="sec-head"><h2>El Fonseca</h2><p>Software, IA y seguridad · resúmenes de The Hacker News y fuentes financieras; confirmen versiones en el aviso oficial del fabricante</p></div>
   <article class="item alert">
-    <h3>🚨 Java4Shell (CVE-2026-114938): una falla de Java que pega en Jira, Jenkins y Keycloak</h3>
-    <div class="meta">Miércoles 18 de noviembre de 2026 · The Hacker News · 🆕 nuevo · parches de Oracle y OpenJDK de esta semana</div>
-    <p>El decodificador Base64 optimizado de Java (el que usa instrucciones AVX-512 VBMI) escribe entre 62 y 63 bytes fuera de su espacio cuando recibe una cadena malformada que termina con un «=» de más. Como los servidores decodifican cabeceras de login, tokens CSRF o SAML antes de revisar la sesión, se puede atacar sin cuenta. Con la configuración por defecto quedan expuestos Keycloak, Jira, Confluence, Artifactory, Jenkins y PingFederate. Solo afecta a CPU x86-64 con AVX-512 VBMI (Xeon Ice Lake o más nuevos, AMD Zen 4 o más nuevos); ARM64, Java 8 y Java 11 estándar no tienen el código vulnerable. Oracle le pone 8,1 y la investigadora, 9,2. Hasta ahora no hay explotación confirmada ni ejecución de código reproducida por terceros, pero sí caídas y fugas de memoria.</p>
-    <div class="why"><b>Qué hacer:</b> revisen si sus servidores tienen esas instrucciones con <code>grep -m1 '^flags' /proc/cpuinfo | tr ' ' '\n' | grep -E '^(avx512f|avx512bw|avx512vbmi|bmi2)$'</code>: si salen las cuatro, son candidatos. Actualicen a Java SE 17.0.21.1, 21.0.13.1, 25.0.5.1 o 27.0.1.1 (o al equivalente de Corretto o Zulu), reinicien los servicios y reconstruyan las imágenes de contenedor. Red Hat todavía no tiene parche: mientras tanto usen <code>-XX:-UseBASE64Intrinsics</code> (no usen <code>-XX:DisableIntrinsic=_base64_decodeBlock</code> solo, porque la JVM no arranca).</div>
-    <div class="links"><a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html">The Hacker News →</a> <a href="https://thehackernews.com/2026/11/oracle-to-patch-11-java-flaws-today-as.html">Contexto Java SE →</a></div>
+    <h3>🚨 Muestran cómo ejecutar código en Oracle sin usuario, y en PostgreSQL y MySQL con uno de mínimos privilegios</h3>
+    <div class="meta">Jueves 19 de noviembre de 2026 · The Hacker News · 🆕 nuevo · sin ataques reales reportados</div>
+    <p>Zheng Yu, investigador de Depthfirst, publicó pruebas de concepto. En Oracle encadena la falla de Oracle Text de 9,9 (CVE-2026-114819) con una de la interfaz GraphQL de ORDS (CVE-2026-91609) a través de un endpoint web expuesto, y así no necesita login. Ayer dijimos que las 9,9 pedían Create Session: por separado es así, pero encadenadas con ORDS, no. Afecta a Oracle Text 19.3 a 19.32, 21.3 a 21.24 y 23.4 a 23.26.3, y a ORDS 24.2.0 a 26.2.1. En PostgreSQL (CVE-2026-116331) basta el privilegio TEMPORARY que viene por defecto para correr código como el usuario del sistema operativo. En MySQL (CVE-2026-101786, versiones 26.7.0 y 26.7.1) basta con poder crear tablas temporales, aunque Oracle lo califica como de privilegios altos. Nadie ha reproducido aún las cadenas completas de forma independiente.</p>
+    <div class="why"><b>Qué hacer:</b> ORDS va primero: si está expuesto a internet, confirmen que tiene el parche de octubre y que la base tiene el de noviembre (son dos parches distintos y la cadena necesita ambos huecos). En PostgreSQL actualicen a 18.7, 17.12, 16.16, 15.20 o 14.25 (salieron el 12 de noviembre) y quiten TEMPORARY con <code>REVOKE TEMPORARY ON DATABASE … FROM PUBLIC;</code> a las cuentas que no lo usan. En MySQL, el parche es el de octubre. Revisen qué pueden <i>hacer</i> las cuentas de aplicación, no solo qué pueden leer.</div>
+    <div class="links"><a href="https://thehackernews.com/2026/11/researcher-demonstrates-database-rce.html">The Hacker News →</a> <a href="https://www.oracle.com/security-alerts/cspunov2026.html">Aviso de Oracle (noviembre) →</a></div>
+  </article>
+  <article class="item alert">
+    <h3>🚨 nginx2root: una falla de 10 años en el HTTP/2 de NGINX permite ejecutar código sin clave</h3>
+    <div class="meta">Miércoles 18 de noviembre de 2026 · The Hacker News · 🆕 nuevo · hay prueba de concepto pública, sin ataques confirmados</div>
+    <p>La CVE-2026-123007 está en el código de HTTP/2 desde la versión 1.9.5 (2015) hasta la 1.31.8. Wiz dice que logró saltarse ASLR en sus pruebas, y con eso basta un puerto HTTP/2 alcanzable para correr código con los permisos del proceso worker. Para llegar a root se necesita además un bug del módulo SCTP del kernel Linux. Las versiones corregidas son 1.31.9 y 1.30.7 (que también arreglan otras cuatro fallas) y NGINX Plus 37.3.0.1 o 37.0.8.1. Para NGINX Plus R34 a R36 no hay parche publicado.</p>
+    <div class="why"><b>Qué hacer:</b> actualicen y <b>reinicien</b> NGINX (o hagan el upgrade del binario en caliente): un <code>nginx -s reload</code> deja corriendo el ejecutable viejo. Mientras tanto, apaguen HTTP/2: en 1.25.1 o más nuevo, <code>http2 off;</code> en los <code>server</code> y saquen <code>http2</code> del <code>listen</code>. Si no usan SCTP, bloqueen que cargue el módulo (<code>install sctp /bin/true</code> en <code>/etc/modprobe.d/</code>).</div>
+    <div class="links"><a href="https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html">The Hacker News →</a></div>
   </article>
   <article class="item">
-    <h3>Salió el parche final de Oracle, con una corrección: las 9,9 de Database piden cuenta</h3>
-    <div class="meta">Martes 17 de noviembre de 2026 · Oracle Critical Security Patch Update, Rev. 1 (publicación inicial) · 🆕 actualizado</div>
-    <p>Ayer dijimos, con el aviso previo, que las fallas de Database se podían explotar sin clave y llegaban a 9,9. El aviso final lo precisa. Las tres de 9,9 (CVE-2026-114819, CVE-2026-114848 y CVE-2026-114822, en Oracle Text y el RDBMS) se explotan por Oracle Net, pero exigen el privilegio Create Session, o sea, un usuario de la base. Las tres que sí se explotan sin autenticación son componentes de terceros con notas más bajas: OpenSSL/TLS (7,5, que además arregla otros 12 CVE), Python (7,4) y Apache HttpClient (4,3). Siguen siendo 7 correcciones para las versiones 19.3 a 19.33, 21.3 a 21.24 y 23.4 a 23.26.4.</p>
-    <div class="why"><b>Qué hacer:</b> la prioridad no cambia, pero sí el motivo. Una cuenta de aplicación o de un usuario con Create Session basta para llegar a 9,9, así que revisen quién tiene cuentas en la base y quiten las que sobran mientras prueban el parche. APEX y ORDS expuestos a internet siguen yendo primero.</div>
-    <div class="links"><a href="https://www.oracle.com/security-alerts/cspunov2026.html">Aviso de Oracle →</a></div>
-  </article>
-  <article class="item">
-    <h3>Hackearon el paquete agent-framework de Microsoft en PyPI</h3>
-    <div class="meta">Miércoles 18 de noviembre de 2026 · The Hacker News · 🆕 nuevo · versiones maliciosas publicadas el martes 17</div>
-    <p>Las versiones 1.26.1 y 1.26.2 de <code>agent-framework</code>, el metapaquete de Microsoft Agent Framework, traían un archivo <code>.pth</code> que se ejecuta cada vez que parte Python, aunque nadie importe el paquete. Robaba variables de entorno, archivos de credenciales (Azure CLI, .npmrc, pip.conf, .git-credentials, Docker, .env) y tokens de Azure y de GitHub Actions, y los mandaba a webhook.site. PyPI ya las puso en cuarentena.</p>
-    <div class="why"><b>Qué hacer:</b> si alguien instaló el paquete el martes entre las 20:35 y las 21:20 UTC (17:35 a 18:20 en Chile), aislen ese equipo o runner, fijen la versión 1.26.0, busquen tráfico a webhook.site y roten las credenciales desde una máquina limpia. Ojo: el malware pedía tokens nuevos, así que rotar solo lo que estaba en disco no basta.</div>
-    <div class="links"><a href="https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html">The Hacker News →</a></div>
+    <h3>Anthropic sale hoy a la bolsa con la mayor oferta de acciones de la historia</h3>
+    <div class="meta">Jueves 19 de noviembre de 2026 · TradingKey y CNBC (miércoles 18) · 🆕 nuevo · empieza a transarse hoy en Nasdaq</div>
+    <p>La empresa que hace Claude fijó el precio en US$83 por acción, sobre el rango de US$70 a US$78 que había anunciado, y vendió 980 millones de acciones (planeaba 825 millones). Recauda unos US$81.300 millones, más que la salida a bolsa de SpaceX (US$75.000 millones en su oferta base), y queda valorada en cerca de US$1,5 billones. Se transa en Nasdaq con el símbolo ANT. La primera transacción puede llegar bastante después de la apertura de las 11:30 de Chile, y las opciones partirían cerca del lunes 23.</p>
+    <div class="why"><b>Por qué importa:</b> es la prueba de cuánto vale hoy la IA para los inversionistas. El precio de los primeros días va a marcar el ánimo de las próximas salidas a bolsa del rubro. Esto es información, no una recomendación de inversión.</div>
+    <div class="links"><a href="https://www.tradingkey.com/analysis/stocks/us-stocks/262312732-ant-debuts-today-record-81-3-billion-ipo-83-line-to-watch-november-19-2026-tradingkey">TradingKey →</a> <a href="https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html">CNBC →</a></div>
   </article>
   <article class="item">
     <h3>En corto</h3>
     <ul class="short">
-      <li><b>SignDrop (Windows, sin parche):</b> un exploit público abusa de la autenticación de CLFS para llegar a SYSTEM en Windows 11 y Server 2025. No tiene CVE, no hay ataques reportados y Microsoft no ha respondido. No desactiven la mitigación de CLFS (valores 2 o 3 en el registro), porque reabre otras fallas. <a href="https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html">Leer</a></li>
-      <li><b>Optimizely (seguimiento):</b> sigue vigente lo de ayer: revisen los experimentos de sus sitios y actualicen iPhone y iPad. <a href="https://thehackernews.com/2026/11/hijacked-optimizely-scripts-served-card.html">Leer</a></li>
+      <li><b>PHP:</b> hoy jueves 19 sale una actualización de seguridad para todas las versiones con soporte, con fallas críticas que incluyen una ejecución remota que depende de la configuración. Agenden la actualización. <a href="https://thehackernews.com/">The Hacker News</a></li>
+      <li><b>Ruby:</b> salieron parches para 7 fallas de memoria en expresiones regulares y strings. Cinco tienen prueba de concepto de ejecución de código. <a href="https://thehackernews.com/">The Hacker News</a></li>
+      <li><b>Explotación activa:</b> Puppet Enterprise (CVE-2026-115731, ya en el catálogo KEV de la CISA) y Apache Roller (CVE-2026-129448, sin autenticación). Si los usan, parchen hoy. <a href="https://thehackernews.com/">The Hacker News</a></li>
+      <li><b>Java4Shell (seguimiento):</b> la CISA pide parchar de inmediato, aunque todavía no hay explotación conocida. Sigue vigente lo de ayer. <a href="https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html">Leer</a></li>
       <li><b>Outlook (sigue vigente):</b> el plazo de la CISA para el zero-day CVE-2026-124194 vence el martes 24. <a href="https://www.tenable.com/blog/microsoft-november-2026-patch-tuesday-addresses-1093-cves-cve-2026-124194">Tenable</a></li>
-      <li><b>Anthropic en bolsa:</b> la salida a Nasdaq (ticker ANT) sigue anunciada para mañana jueves 19, con un rango de US$70 a US$78 informado por CNBC el 10 de noviembre. Al cierre de esta edición no encontré confirmación del precio final. <a href="https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html">CNBC</a></li>
     </ul>
   </article>
 </section>
 
 <!-- PANORAMAS -->
 <section id="panoramas" role="tabpanel" aria-labelledby="t-panoramas" style="--c:var(--panoramas)" hidden>
-  <div class="sec-head"><h2>Panoramas</h2><p>Región de Valparaíso · todo es a futuro · revisado el 18/11 en Pindoor, Portaltickets, Jaranax y búsquedas en Passline, Ticketplus, Puntoticket y medios (más la cartelera de días anteriores de SalsaVida, Toliv y Visita Viña) · confirmen precio y hora en la boletería.</p></div>
-  <article class="item">
-    <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag who">Ya publicado</span></div>
-    <h3>📍 Trotamundos · Lucas Espinoza &amp; Altoyoyo</h3>
-    <div class="meta">HOY mié 18 de noviembre, 19:00 · Trotamundos, Blanco 1253 (frente a Estación Bellavista) · Pindoor</div>
-    <p>Plan de mitad de semana para salir los dos después de la pega. No informan precio.</p>
-    <div class="links"><a href="https://pindoor.cl/panoramas/lucas-espinoza-en-trotamundos-valparaiso-791">Más info →</a></div>
-  </article>
+  <div class="sec-head"><h2>Panoramas</h2><p>Región de Valparaíso · todo es a futuro · revisado el 19/11 en Songkick (Trotamundos), Portaltickets, Puntoticket, Toliv, la agenda Visita Viña y búsquedas en Passline, Ticketplus y medios (más la cartelera de días anteriores de Pindoor, Jaranax y SalsaVida) · confirmen precio y hora en la boletería.</p></div>
   <article class="item">
     <div><span class="tag free">Gratis</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag who">Ya publicado</span></div>
     <h3>📍 Trotamundos · Rojo Eterno, tributo a Lucybell</h3>
-    <div class="meta">Jue 19 de noviembre, 20:00 · Trotamundos, Blanco 1253 (frente a Estación Bellavista) · Pindoor</div>
+    <div class="meta">HOY jue 19 de noviembre, 20:00 · Trotamundos, Blanco 1253 (frente a Estación Bellavista) · Pindoor</div>
     <p>Entrada liberada según la agenda: buena excusa para una salida barata entre semana.</p>
     <div class="links"><a href="https://pindoor.cl/panoramas/rojo-eterno-tributo-a-lucybell-en-trotamundos-valparaiso-1060">Más info →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Pareja</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <h3>Dulce y Agraz: «Sentimientos» en el Teatro Mauri</h3>
+    <div class="meta">HOY jue 19 de noviembre, 20:00 · Teatro Mauri SCD, Valparaíso · Portaltickets</div>
+    <p>Pop romántico chileno de los noventa para una salida de pareja entre semana, a pasos del plan. Portaltickets no muestra el precio: revisen en el enlace.</p>
+    <div class="links"><a href="https://www.portaldisc.com/evento/dulceyagrazsentimientosenteatromauriscd">Entradas →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">Precio por confirmar</span><span class="tag who">Familia · Niños 7-13</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <h3>Festival Semillero del Rock en el Artequin</h3>
+    <div class="meta">HOY jue 19 y vie 20 de noviembre, 11:00 a 19:00 · Museo Artequin, Viña del Mar · agenda municipal Visita Viña</div>
+    <p>Bandas jóvenes de rock en el museo de arte para niños. Calza para el de 10 y la de 13 si salen temprano del colegio el viernes. La agenda no informa precio ni programa.</p>
+    <div class="links"><a href="https://visitavina.munivina.cl/actividades/">Agenda Visita Viña →</a></div>
   </article>
   <article class="item">
     <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Pareja · Adultos</span><span class="tag who">😂 Humor</span> <span class="tag who">Ya publicado</span></div>
@@ -414,7 +423,7 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <div class="links"><a href="https://www.salsavida.com/es/guides/chile/vina-del-mar/">Agenda SalsaVida →</a></div>
   </article>
   <article class="item">
-    <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag who">Ya publicado</span></div>
     <h3>Boom Popurrí Bar &amp; Disco en Viña Stage</h3>
     <div class="meta">Sáb 21 de noviembre, 21:00 · Viña Stage, Viña del Mar · Portaltickets</div>
     <p>Noche de bar y disco con «popurrí» de éxitos para bailar sin ir hasta el puerto. La ficha no detalla estilo, DJ, precio ni edad: confirmen antes.</p>
@@ -440,13 +449,20 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <div class="links"><a href="https://www.portaldisc.com/evento/nanosternenteatromauriscdvalparaiso">Entradas →</a></div>
   </article>
   <article class="item">
+    <div><span class="tag paid">Pagado · desde $15.600</span><span class="tag who">Familia · Jóvenes 19</span> <span class="tag new">🆕 Nuevo</span></div>
+    <h3>🌳 Reforest Running: correr por Av. Perú y plantar un árbol</h3>
+    <div class="meta">Dom 22 de noviembre · 07:00 calentamiento, 08:00 los 10K y 08:15 los 3K y 5K · Av. Perú, junto a Plaza Colombia, Viña del Mar · Meganoticias, 3 de noviembre</div>
+    <p>Corrida de 3K ($15.600 en preventa), 5K ($17.600) y 10K ($21.600) frente al mar. Por cada inscrito se planta un árbol en zonas quemadas. Pueden correr desde los 5 años (menores de 18 con autorización firmada), así que el de 7 puede hacer los 3K de la mano. Para la hija que estudia kinesiología es un buen ambiente de deporte. Hay juegos y concursos para las familias.</p>
+    <div class="links"><a href="https://www.passline.com/eventos/reforest-running-vina-del-mar-2026-516795">Inscripción en Passline →</a> <a href="https://www.meganoticias.cl/nacional/535476-reforest-running-vina-del-mar-fecha-precios-recorridos-inscripcion-03-11-2026.html">Meganoticias →</a></div>
+  </article>
+  <article class="item">
     <div><span class="tag paid">Según función</span><span class="tag who">Pareja · Jóvenes 19</span></div>
     <h3>Festival Internacional de Cine de Viña del Mar</h3>
     <div class="meta">Lun 23 al sáb 28 de noviembre · Teatro Municipal de Viña y otras salas · ya publicado</div>
     <div class="links"><a href="https://teatrovina.cl/evento/festival-internacional-de-cine-de-vina-del-mar-38-a-edicion/">Teatro Municipal →</a></div>
   </article>
   <article class="item">
-    <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Familia · Niños 7-13</span> <span class="tag new">🆕 Nuevo</span></div>
+    <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Familia · Niños 7-13</span> <span class="tag who">Ya publicado</span></div>
     <h3>⚽ Wanderers se juega el ascenso en el Elías Figueroa</h3>
     <div class="meta">Jue 26 de noviembre, 19:00 · Estadio Elías Figueroa, Valparaíso · vuelta de cuartos de final de la Liguilla de Ascenso · Al Aire Libre, 17 de noviembre</div>
     <p>El plan para el hijo de 7: Wanderers clasificó a la liguilla de la Primera B y enfrenta a Recoleta. La ida es este viernes 20 a las 18:00 en La Pintana (se puede ver por TNT Sports Premium) y la vuelta es de local, en el puerto. Las entradas se suelen agotar en partidos así: estén atentos a la venta oficial del club.</p>
@@ -460,7 +476,7 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <div class="links"><a href="https://www.portaldisc.com/evento/fiesta27septiembre">Entradas →</a></div>
   </article>
   <article class="item">
-    <div><span class="tag free">Gratis</span><span class="tag who">Familia · Niños 7-13</span> <span class="tag new">🆕 Nuevo</span></div>
+    <div><span class="tag free">Gratis</span><span class="tag who">Familia · Niños 7-13</span> <span class="tag who">Ya publicado</span></div>
     <h3>Cuentacuentos «A Puertas Abiertas» Vol. 7</h3>
     <div class="meta">Sáb 28 de noviembre, 11:00 · Duoc UC, edificio Cousiño, Valparaíso · Pindoor</div>
     <p>Mañana de cuentos gratis para los más chicos, buena para el hijo de 7 antes del almuerzo. Revisen en la ficha si piden inscripción.</p>
@@ -494,7 +510,7 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <div class="links"><a href="https://visitavina.munivina.cl/actividades/">Agenda Visita Viña →</a></div>
   </article>
   <article class="item">
-    <div><span class="tag paid">$8.800 a $33.000</span><span class="tag who">Pareja · Jóvenes 19 · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <div><span class="tag paid">$8.800 a $33.000</span><span class="tag who">Pareja · Jóvenes 19 · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag who">Ya publicado</span></div>
     <h3>Yilberking en Patio Central</h3>
     <div class="meta">Dom 29 de noviembre, 17:00 a 01:00 · Patio Central, Von Schroeders 75 (Viña del Mar; el portal lo lista en Valparaíso) · Jaranax / WowTicket</div>
     <p>Show del artista venezolano, en formato tarde-noche de domingo. El aviso no dice el estilo ni la edad mínima: revisen en WowTicket antes de comprar.</p>
@@ -505,6 +521,13 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <h3>Quilapayún en el Teatro Mauri</h3>
     <div class="meta">Dom 29 de noviembre, 19:30 · Teatro Mauri SCD, Valparaíso · ya publicado</div>
     <div class="links"><a href="https://www.portaldisc.com/evento/quilapayunenteatromauriscd">Entradas →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <h3>Pedro Aznar en el Teatro Municipal de Viña</h3>
+    <div class="meta">Dom 29 de noviembre, 19:00 a 21:00 · Teatro Municipal de Viña del Mar · agenda municipal Visita Viña</div>
+    <p>El argentino de Serú Girán y Pat Metheny, en formato de teatro. Para una noche de domingo tranquila los dos. La agenda no informa precio.</p>
+    <div class="links"><a href="https://visitavina.munivina.cl/actividades/">Agenda Visita Viña →</a></div>
   </article>
   <article class="item">
     <div><span class="tag paid">Desde $13.200</span><span class="tag who">Pareja · Adultos +18</span><span class="tag who">😂 Humor</span></div>
@@ -532,6 +555,13 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <div class="meta">Vie 4 de diciembre, 18:00 · Teatro Mauri, Valparaíso · ya publicado</div>
     <p>El trapero chileno presenta su nuevo EP en formato teatro, más íntimo. Para El Fonseca y para las hijas grandes. Ese mismo viernes, a las 22:00, están Las Manos de Filippi en Trotamundos: se puede hacer doblete. No informan precio ni edad mínima.</p>
     <div class="links"><a href="https://www.toliv.com/eventos/chile/valparaiso/young-cister-valparaiso-xulo-xpress-tour-25895">Más info →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">Precio por confirmar</span><span class="tag who">Niños 7-13 · Jóvenes 19</span> <span class="tag new">🆕 Nuevo</span></div>
+    <h3>Feria Otakon en el Sporting</h3>
+    <div class="meta">Sáb 5 de diciembre, 12:00 a 19:00 · Sporting de Viña del Mar · agenda municipal Visita Viña</div>
+    <p>Feria de anime, cómics y cosplay. Si la del 13 se quedó con ganas después de la Japan Geeks Z del 28, aquí hay otra. La agenda no informa precio.</p>
+    <div class="links"><a href="https://visitavina.munivina.cl/actividades/">Agenda Visita Viña →</a></div>
   </article>
   <article class="item">
     <div><span class="tag paid">Pagado (precio por confirmar)</span><span class="tag who">Pareja · Adultos +18</span><span class="tag who">😂 Humor</span></div>
@@ -591,29 +621,36 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
     <div class="links"><a href="https://www.portaldisc.com/evento/qssyw12dic2026">Entradas →</a></div>
   </article>
   <article class="item">
-    <div><span class="tag paid">Precio por confirmar</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <div><span class="tag paid">Precio por confirmar</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag who">Ya publicado</span></div>
     <h3>📍 Trotamundos · Festival de Cumbia</h3>
     <div class="meta">Sáb 19 de diciembre, 20:00 · Trotamundos, Blanco 1253 (frente a Estación Bellavista) · Pindoor · aviso con un mes de anticipación</div>
     <p>Para La Sonrisita, y es justo lo que buscábamos: una noche entera de cumbia con El Biza, La Gran América Junior, La Sonora del VitoLko, La Quinta Kumbia y más. Queda fuera de las dos semanas, pero lo avisamos ya porque estos festivales se llenan. No informan precio todavía.</p>
     <div class="links"><a href="https://pindoor.cl/panoramas/festival-de-cumbia-el-biza-la-gran-america-junior-la-sonora-del-vitolko-la-quinta-kumbia-889">Más info →</a></div>
   </article>
   <article class="item">
-    <div><span class="tag paid">Precio por confirmar</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <div><span class="tag paid">Pagado · $32.200 a $64.400</span><span class="tag who">Pareja</span><span class="tag who">🎵 Música</span> <span class="tag new">🆕 Nuevo</span></div>
+    <h3>Eva Ayllón + Inti-Illimani Histórico + Cuarteto Austral</h3>
+    <div class="meta">Sáb 26 de diciembre, 20:00 · Teatro Municipal de Viña del Mar · Puntoticket · aviso con anticipación</div>
+    <p>La reina del landó y la música afroperuana junto a Inti-Illimani Histórico: ritmo para La Sonrisita y regalo de Navidad atrasado para la pareja. Galería a $32.200 y platea baja a $59.800 (incluye cargo por servicio). En el teatro las entradas buenas se van rápido.</p>
+    <div class="links"><a href="https://www.puntoticket.com/evento/eva-ayllon-inti-illimani-cuarteto-austral-teatro-municipal-vina-del-mar-dic-2026">Entradas →</a></div>
+  </article>
+  <article class="item">
+    <div><span class="tag paid">Precio por confirmar</span><span class="tag who">Pareja · Adultos</span><span class="tag who">🎵 Música</span> <span class="tag who">Ya publicado</span></div>
     <h3>📍 Trotamundos · One Shot Tour: Leeroy, Féfé y Bubaseta</h3>
     <div class="meta">Sáb 9 de enero de 2027, 20:00 · Trotamundos, Valparaíso · Pindoor · aviso con mucha anticipación</div>
     <p>Para El Fonseca: hip hop francés. Leeroy y Féfé fueron parte del Saïan Supa Crew. Falta harto, pero queda anotado para que no se nos pase como Jonas Sanche.</p>
     <div class="links"><a href="https://pindoor.cl/panoramas/one-shot-tour-leeroy-fefe-bubaseta-en-trotamundos-valparaiso-701">Más info →</a></div>
   </article>
-  <p class="note">📍 Trotamundos: hoy la cartelera de Pindoor trae dos fechas nuevas para nosotros: el Festival de Cumbia (19/12) y el One Shot Tour de hip hop francés (9/1/2027). Songkick y la ficha de Passline no abrieron desde mi sesión, y Vamos no lista eventos del local. Además de lo de arriba, Trotamundos tiene tributos y rock estas semanas (Cumbre Grunge 21/11, Match 22/11, Paola Molina 25/11, Flema 26/11, Maiden United 27/11, The Doors 2/12 gratis, The Ramblers 5/12, Duratierra 7/12). En otras salas apareció poco que calce: fiestas electrónicas como Chinonegro en el Sporting (21/11) y Eli Brown en Club D (27/11), y el Primer Festival Cervezocracia en La Convencional (lun 7/12). Sigo sin encontrar batallas de freestyle, salsa nueva ni ferias gastronómicas en la región para las próximas dos semanas.</p>
+  <p class="note">📍 Trotamundos: hoy revisé su ficha en Songkick, que solo lista a Danay Suárez (11/12, ya en el boletín) y, como fecha nueva, Overkill (thrash metal, jueves 11 de marzo de 2027). La ficha de Passline no abrió desde mi sesión. Siguen vigentes las fechas de días anteriores y los tributos y el rock de estas semanas (Cumbre Grunge 21/11, Match 22/11, Paola Molina 25/11, Flema 26/11, Maiden United 27/11, The Doors 2/12 gratis, The Ramblers 5/12, Duratierra 7/12). En Portaltickets aparecieron además Chicarica en Club Segundo Piso (10/12), Fernando Ubiergo en el Aula Magna USM (19/12) y Tata Barahona en el Teatro Mauri (19/12). Hoy tampoco encontré batallas de freestyle, salsa nueva, cumbia en vivo ni ferias gastronómicas para las próximas dos semanas, aparte de lo que ya está arriba.</p>
 </section>
 
 <!-- CASAS -->
 <section id="casas" role="tabpanel" aria-labelledby="t-casas" style="--c:var(--casas);max-width:none" hidden>
-  <div class="sec-head"><h2>Casas en arriendo</h2><p>Casas para arrendar en Valparaíso, ordenadas de la más cercana a la más lejana del Congreso · tope $700.000 al mes · distancias estimadas · revisado el 18/11 · sin casas nuevas hoy</p></div>
+  <div class="sec-head"><h2>Casas en arriendo</h2><p>Casas para arrendar en Valparaíso, ordenadas de la más cercana a la más lejana del Congreso · tope $700.000 al mes · distancias estimadas · revisado el 19/11 · sin casas nuevas confirmadas hoy</p></div>
   <div class="tbl"><table>
     <thead><tr><th>Foto</th><th>Ubicación</th><th>Distancia al Congreso</th><th>Arriendo mensual</th><th>Gastos comunes / garantía</th><th>Dorm · Baños</th><th>m²</th><th>Extras</th><th>Aviso</th></tr></thead>
     <tbody>
-      <tr><td class="foto"><img src="https://img2.rentola.com/xo7hN0zlFQFgVvdWfBUbHtni-40=/filters:format(webp)/https%3A%2F%2Fhttp2.mlstatic.com%2FD_NQ_NP_948119-MLC119298185379_102026-F-casa-grande-sin-patio-y-estac-polanco-pasos-avda-argentina.webp" alt="" loading="lazy" referrerpolicy="no-referrer"></td><td><b>Polanco, a pasos de Av. Argentina</b><br>«Casa grande»</td><td>≈0,8 km estimado · ≈10 min a pie</td><td class="num">$480.000</td><td>No informado</td><td>3 · No informado</td><td>60</td><td>Sin patio ni estacionamiento (según el título)</td><td><a href="https://casasparati.cl/listings/casa-grande-sin-patio-y-estac-polanco-pasos-avda-argentina-pf6dbae">casasparati · hace 23 días</a> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
+      <tr><td class="foto"><img src="https://img2.rentola.com/xo7hN0zlFQFgVvdWfBUbHtni-40=/filters:format(webp)/https%3A%2F%2Fhttp2.mlstatic.com%2FD_NQ_NP_948119-MLC119298185379_102026-F-casa-grande-sin-patio-y-estac-polanco-pasos-avda-argentina.webp" alt="" loading="lazy" referrerpolicy="no-referrer"></td><td><b>Polanco, a pasos de Av. Argentina</b><br>«Casa grande»</td><td>≈0,8 km estimado · ≈10 min a pie</td><td class="num">$480.000</td><td>No informado</td><td>3 · No informado</td><td>60</td><td>Sin patio ni estacionamiento (según el título)</td><td><a href="https://casasparati.cl/listings/casa-grande-sin-patio-y-estac-polanco-pasos-avda-argentina-pf6dbae">casasparati · hace 27 días</a> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
       <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>El Almendral (plan)</b><br>Casa sin amoblar</td><td>≈0,8 km estimado · ≈10 min a pie</td><td class="num">$550.000</td><td>No informado</td><td>3 · 1</td><td>60</td><td>No informado</td><td><a href="https://casas.mitula.cl/casas/arriendo-casas-3-dormitorios-almendral">Listado Mitula</a> <i>vigencia no verificada; confirmen que sea casa</i> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
       <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Cerro Barón</b><br>Casa</td><td>≈1,2 km estimado · ≈15 min a pie</td><td class="num">$420.000</td><td>No informado</td><td>2 · No informado</td><td>No informado</td><td>Vista al mar</td><td><a href="https://casas.trovit.cl/arriendo-casa-valparaiso-cerro/7">Listado Trovit</a> <i>vigencia no verificada</i> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
       <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Cerro Barón</b> (el texto dice Cerro Larraín)<br>Casa amoblada (según la descripción)</td><td>≈1,1 km estimado · ≈15 min a pie</td><td class="num">$300.000</td><td>No informado</td><td>1 · 1</td><td>50</td><td>Amoblada</td><td><a href="https://casas.trovit.cl/detail/01a1b659-21aa-77b6-8b05-8390ec3a9db8">Trovit · hace 8 días</a> (también en Mitula; la ficha dice Cerro Lecheros, Cerro Barón) <i>confirmen el cerro</i> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
@@ -638,15 +675,15 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
       <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Cerro Placeres (Villa Berlín)</b><br>Casa</td><td>≈3 km estimado (prefieran partes bajas/medias)</td><td class="num">$500.000</td><td>No informado</td><td>3 · 1</td><td>105</td><td>Estacionamiento (según el título)</td><td><a href="https://portalinmobiliario.com/MLC-4279625056-villa-berlin-placeres-casa-en-arriendo-de-3d-1b-est-_JM">Portal Inmobiliario</a> <i>vigencia no verificada</i> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
       <tr><td class="foto"><span class="sinfoto">🏠</span></td><td><b>Cerro Placeres</b><br>Casa en condominio, Javiera Carrera 960</td><td>≈3 km estimado</td><td class="num">$560.000</td><td>No informado</td><td>4 · 2</td><td>95 útiles</td><td>Condominio</td><td><a href="https://casas.trovit.cl/arriendo-casa-valparaiso-placeres/2">Listado Trovit</a> <i>vigencia no verificada</i> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
       <tr><td class="foto"><img src="https://img2.rentola.com/SkUuiZs2pjIrG6CP50Tnd_vbs48=/filters:format(webp)/https%3A%2F%2Fhttp2.mlstatic.com%2FD_NQ_NP_706528-MLC119255695476_112026-F-arriendo-casa-4d-2b-estacionamiento-en-playa-ancha.webp" alt="" loading="lazy" referrerpolicy="no-referrer"></td><td><b>Playa Ancha</b> (sector no informado: confirmen que sea parte baja)<br>Casa</td><td>≈3 km o más, según el sector</td><td class="num">$600.000</td><td>No informado</td><td>4 · 2</td><td>140</td><td>Estacionamiento</td><td><a href="https://casasparati.cl/listings/arriendo-casa-4d-2b-estacionamiento-en-playa-ancha-pfb0094">casasparati · hace 7 días</a> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
-      <tr><td class="foto"><img src="https://img2.rentola.com/zVFdPF9QeC-iTdsa61JLp3zJXQE=/filters:format(webp)/http%3A%2F%2Fimgcf.ecn.cl%2F600%2Fec%2Fec193499edd32c59c35bd18ba19beeaf4decc215.bin.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></td><td><b>Av. Rodelillo, paradero 20</b><br>Casa</td><td>≈4,5 km estimado · en micro por Av. Argentina</td><td class="num">$300.000</td><td>No informado</td><td>2 · No informado</td><td>68</td><td>No informado</td><td><a href="https://casasparati.cl/listings/arriendo-casa-en-av-rodelillo-paradero-20-pd4747d">casasparati · hace 12 días</a> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
+      <tr><td class="foto"><img src="https://img2.rentola.com/zVFdPF9QeC-iTdsa61JLp3zJXQE=/filters:format(webp)/http%3A%2F%2Fimgcf.ecn.cl%2F600%2Fec%2Fec193499edd32c59c35bd18ba19beeaf4decc215.bin.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></td><td><b>Av. Rodelillo, paradero 20</b><br>Casa</td><td>≈4,5 km estimado · en micro por Av. Argentina</td><td class="num">$300.000</td><td>No informado</td><td>2 · No informado</td><td>68</td><td>No informado</td><td><a href="https://casasparati.cl/listings/arriendo-casa-en-av-rodelillo-paradero-20-pd4747d">casasparati · hace 16 días</a> <span class="tag who">ya vista (sigue vigente)</span></td></tr>
     </tbody>
   </table></div>
-  <p class="note">Hoy no pude revisar: Portal Inmobiliario, Mercado Libre, casasparati ni micasapo. Las páginas de Portal Inmobiliario y casasparati no abrieron desde mi sesión, Mercado Libre bloquea la lectura automática y las búsquedas con site:inmuebles.mercadolibre.cl y site:micasapo.cl no trajeron avisos suyos. Yapo y Mitula tampoco cargaron. En el listado de cerros de Trovit siguen las mismas: la casa Figueroa de Cerro Mariposa ($285.000, ahora «hace 13 días») y la esquina de Cerro Florida/Mariposa ($560.000). Apareció un aviso nuevo de hace menos de un día en Cerro O'Higgins / Las Delicias, a $323.000 (1 dormitorio, 1 baño, 35 m²): el portal lo clasifica como departamento pero la descripción dice «casa en arriendo», así que no lo puse en la tabla hasta confirmar. <a href="https://casas.trovit.cl/detail/1c51ce00-dd5a-4483-9915-363462d57fff">Ver aviso</a>. Siguen sin sector claro en casasparati: <a href="https://casasparati.cl/listings/se-arrienda-casa-amoblada-con-vista-al-mar-en-valparaiso-p9e1b0a">amoblada con vista al mar, $360.000</a> y <a href="https://casasparati.cl/listings/casa-en-arriendo-p168c77">2 dormitorios, $450.000</a>. Confirmen precio, vigencia y distancia en cada aviso antes de visitar.</p>
+  <p class="note">Hoy sí pude revisar casasparati y Portal Inmobiliario. En casasparati, la primera página (21 avisos) no trae nada nuevo que calce: lo barato son habitaciones o piezas en Av. Pedro Montt 236, y el resto está en Placilla o Curauma. Siguen ahí la casa de Polanco, la de Rodelillo, la casa Figueroa y el loft de Plaza Los Poetas. Portal Inmobiliario abrió, pero sin precios ni enlaces, así que no pude meter nada a la tabla. Aparecen casas que conviene mirar allá: <b>Subida Washington</b> (2 dorm, 1 baño, 75 m²), una «casa en arriendo, plan de Valparaíso» en <b>Cerro Florida</b> (2 dorm, 1 baño, 50 m²), <b>Sargento Aldea</b> (3 dorm, 1 baño, 73 m²), <b>sector puerto</b> (3 dorm, 1 baño, 90 m²), <b>Subida Ecuador, Cerro Cárcel</b> (3 dorm, 1 baño, 120 m²), <b>Cerro Barón</b> (2 dorm, 2 baños, 80 m²) y dos en <b>Playa Ancha</b> (3 dorm, 63 y 70 m²; confirmen que sea parte baja). <a href="https://www.portalinmobiliario.com/arriendo/casa/valparaiso-valparaiso">Ver listado →</a>. Hoy no pude revisar: Mercado Libre (bloquea la lectura automática y la búsqueda no trajo avisos suyos) ni micasapo (la búsqueda con site:micasapo.cl no trajo avisos). En Trovit y Mitula siguen las mismas, y sigue sin confirmar si el aviso de Cerro O'Higgins / Las Delicias ($323.000) es casa o departamento: <a href="https://casas.trovit.cl/detail/1c51ce00-dd5a-4483-9915-363462d57fff">ver aviso</a>. Confirmen precio, vigencia y distancia antes de visitar.</p>
   <article class="item" style="margin-top:18px;background:var(--tint);border-radius:8px;padding:14px 16px;border-top:none">
     <h3>💡 Datos para arrendar</h3>
     <ul class="short">
       <li><b>Reajuste por IPC (sigue vigente): la cifra de referencia es 4,5%.</b> El INE informó el 6 de noviembre que el IPC subió 0,5% en octubre y acumula 4,5% en el año y en 12 meses. Muchos contratos reajustan el arriendo cada 6 o 12 meses según el IPC: en uno de $500.000 con reajuste anual, un 4,5% serían unos $22.500 más al mes. Antes de firmar, que quede escrito cada cuánto se reajusta y con qué índice, y pidan un tope si la inflación sigue subiendo. <a href="https://www.emol.com/noticias/Economia/2026/11/06/1216291/ipc-inflacion-economia-ine.html">Emol →</a></li>
-      <li><b>Subsidio de arriendo (DS52), sigue igual:</b> revisé de nuevo y no hay llamado abierto; el regular 2026 fue del 7 de julio al 7 de agosto. Da hasta 4,2 UF al mes para arriendos de hasta 11 UF. <a href="https://www.minvu.gob.cl/noticia/minvu-anuncia-la-apertura-del-llamado-al-subsidio-de-arriendo-de-2026/">Minvu →</a></li>
+      <li><b>UF de hoy: $41.364,17 (SII).</b> Sirve para los avisos en UF y para el subsidio de arriendo (DS52), que sigue sin llamado abierto (el regular 2026 fue del 7 de julio al 7 de agosto). Su tope de 11 UF equivale hoy a unos $455.000 de arriendo, y el aporte máximo de 4,2 UF, a unos $173.700 al mes. <a href="https://www.sii.cl/valores_y_fechas/uf/uf2026.htm">SII →</a> <a href="https://www.minvu.gob.cl/noticia/minvu-anuncia-la-apertura-del-llamado-al-subsidio-de-arriendo-de-2026/">Minvu →</a></li>
       <li><b>Ley «Devuélveme mi casa» (Ley 21.461, sigue vigente):</b> agiliza el desalojo y el cobro de rentas impagas. Paguen a tiempo y dejen todo por escrito, con inventario y fotos. <a href="https://www.chileatiende.gob.cl/fichas/107794/1/pdf">ChileAtiende →</a></li>
     </ul>
   </article>
@@ -656,30 +693,23 @@ footer{color:var(--muted);font-size:12.5px;text-align:center;padding-block:10px 
 <section id="region" role="tabpanel" aria-labelledby="t-region" style="--c:var(--region)" hidden>
   <div class="sec-head"><h2>Región</h2><p>Lo que cambia en el día a día de Valparaíso</p></div>
   <article class="item">
-    <h3>Hoy miércoles: movilización en el centro desde las 11:00</h3>
-    <div class="meta">G5 Noticias, 13 de noviembre · sigue vigente · es hoy</div>
-    <p>La CUT, la Confech y organizaciones estudiantiles marchan contra los recortes del Presupuesto 2027, con punto frente a la Delegación Presidencial, en el plan. Esperen desvíos y micros lentas cerca del Congreso durante el día.</p>
-    <div class="links"><a href="https://g5noticias.cl/2026/11/13/estudiantes-secundarios-convocan-a-movilizacion-nacional-el-18-11/">G5 Noticias →</a></div>
+    <h3>Corrección: ya no hay alerta roja por el río Aconcagua</h3>
+    <div class="meta">G5 Noticias, lunes 16 de noviembre de 2026 · 🆕 corrección</div>
+    <p>En las últimas ediciones dijimos que seguía la alerta roja. No era así: Senapred la canceló el mismo lunes 16, porque el caudal bajó a unos 220 m³/s en Puente Colmo, y Quillota quedó en alerta amarilla. El punto delicado sigue siendo el sector Camino Real, en Boco (Quillota), donde el río comió la ribera. Las autoridades piden no acercarse al río porque el caudal todavía puede variar.</p>
+    <div class="why"><b>Por qué importa:</b> la desembocadura en Concón ya no está en rojo, pero con el deshielo conviene esperar unos días antes de meter las tablas de SUP cerca del río. Mejor la bahía de Valparaíso o Viña.</div>
+    <div class="links"><a href="https://g5noticias.cl/?p=938016">G5 Noticias →</a></div>
   </article>
   <article class="item">
-    <h3>Denuncian más de 100 despidos en la educación pública de Valparaíso</h3>
-    <div class="meta">Miércoles 18 de noviembre de 2026 · La Región Hoy y G5 Noticias (17/11) · 🆕 nuevo · son denuncias, aún sin confirmación del SLEP</div>
-    <p>El senador Diego Ibáñez y los diputados Jorge Brito y Luis Cuello, junto a gremios y apoderados, dicen que más de 100 profesores y asistentes de la educación de los colegios públicos de Valparaíso serían desvinculados a fin de año por el ajuste presupuestario del SLEP. Mencionan fusiones de cursos en la Escuela América de Playa Ancha y efectos en los Programas de Integración Escolar (PIE). Ni el SLEP ni el Gobierno lo confirman en la nota.</p>
-    <div class="why"><b>Por qué importa:</b> si los niños de 10 y 13 van a un colegio público de la comuna, conviene preguntar en la reunión de apoderados qué cambia para marzo, sobre todo en cursos y apoyo PIE.</div>
-    <div class="links"><a href="https://laregionhoy.cl/2026/11/18/denuncian-mas-de-100-despidos-en-la-educacion-publica-de-valparaiso-por-recortes-al-presupuesto-2027/">La Región Hoy →</a> <a href="https://g5noticias.cl/2026/11/17/senador-ibanez-denuncia-despidos-masivos-de-profesores-y-asistentes-de-la-educacion-en-valparaiso-y-llama-a-rechazar-la-partida-de-educacion-del-presupuesto-2027/">G5 Noticias →</a></div>
-  </article>
-  <article class="item alert">
-    <h3>Sigue la alerta roja por el río Aconcagua</h3>
-    <div class="meta">Vigente desde el domingo 15 de noviembre · Emol y BioBioChile, 16 de noviembre · sigue vigente (no encontré aviso de que se haya levantado)</div>
-    <p>Senapred mantiene la alerta roja en Concón, Quintero, Quillota y Limache por un posible desborde del Aconcagua, por el deshielo acelerado con el calor. No afecta a Valparaíso ni a Viña.</p>
-    <div class="why"><b>Por qué importa:</b> mientras dure, nada de SUP ni picnic cerca de la desembocadura en Concón.</div>
-    <div class="links"><a href="https://www.emol.com/noticias/Nacional/2026/11/16/1217186/senapred-alerta-roja-valparaiso-desborde.html">Emol →</a> <a href="https://www.biobiochile.cl/noticias/nacional/region-de-valparaiso/2026/11/16/declaran-alerta-roja-para-concon-quintero-quillota-y-limache-por-eventual-desborde-del-rio-aconcagua.shtml">BioBioChile →</a></div>
+    <h3>Este Año Nuevo no habrá fiesta en Plaza Sotomayor</h3>
+    <div class="meta">Meganoticias, 4 de noviembre · Radio Agricultura, 6 de noviembre · sigue vigente</div>
+    <p>Las obras de la explanada de Plaza Sotomayor partieron el 3 de noviembre y duran 150 días, así que la celebración tradicional de Año Nuevo no se hará ahí. Vayan pensando desde qué cerro ver los fuegos. En Viña siguen desviados 17 recorridos de micro por las obras de Von Schroeders (la primera fase va hasta el 10 de marzo de 2027), justo donde está Patio Central si van a Yilberking el 29.</p>
+    <div class="links"><a href="https://www.meganoticias.cl/nacional/535533-valparaiso-ano-nuevo-plaza-sotomayor-remodelacion-04-11-2026.html">Meganoticias →</a> <a href="https://www.radioagricultura.cl/noticias/nacional/vina-del-mar-cambios-recorridos-micros-desvios_20261106/">Radio Agricultura →</a></div>
   </article>
   <article class="item">
-    <h3>Siguen las obras en Plaza Sotomayor y los desvíos en Viña</h3>
-    <div class="meta">Emol, 3 de noviembre · Radio Agricultura, 6 de noviembre · sigue vigente</div>
-    <p>Siguen los cierres parciales en Plaza Sotomayor. En Viña, 17 recorridos siguen desviados por las obras de Von Schroeders (primera fase hasta el 10 de marzo de 2027), justo donde está Patio Central si van a Yilberking el 29. La consulta del Plan Regulador para ampliar el Van Buren sigue abierta hasta fines de noviembre, aproximadamente.</p>
-    <div class="links"><a href="https://www.emol.com/noticias/Nacional/2026/11/03/1215937/inician-recuperacion-plaza-sotomayor.html">Emol →</a> <a href="https://www.radioagricultura.cl/noticias/nacional/vina-del-mar-cambios-recorridos-micros-desvios_20261106/">Radio Agricultura →</a> <a href="https://g5noticias.cl/2026/10/15/municipalidad-de-valparaiso-inicia-proceso-para-modificar-el-plan-regulador-y-facilitar-la-ampliacion-del-hospital-carlos-van-buren/">Van Buren →</a></div>
+    <h3>Despidos en la educación pública de Valparaíso: sigue sin confirmación oficial</h3>
+    <div class="meta">La Región Hoy, 18 de noviembre · sigue vigente · es una denuncia de parlamentarios y gremios</div>
+    <p>No hay novedades desde ayer: la denuncia de más de 100 desvinculaciones de profesores y asistentes por el ajuste del SLEP sigue sin respuesta oficial. Si los niños de 10 y 13 van a un colegio público de la comuna, pregunten en la próxima reunión de apoderados qué cambia para marzo.</p>
+    <div class="links"><a href="https://laregionhoy.cl/2026/11/18/denuncian-mas-de-100-despidos-en-la-educacion-publica-de-valparaiso-por-recortes-al-presupuesto-2027/">La Región Hoy →</a></div>
   </article>
 </section>
 
